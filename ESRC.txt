@@ -1,0 +1,18 @@
+import pandas as pandas
+import streamlit as streamlit
+import plotly.express as px
+
+
+streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
+streamlit.header("User Portal")
+streamlit.subheader("Biometric Analysis, Industry Outreach, and Publications are available")
+
+excel_file = "OFFICIAL - Life Blood - Retailer profile application template-continuouslysaveddocument (6 17 2024).xlsm"
+sheet_name = "Sheet13"
+
+df = pandas.read_excel(excel_file, sheet_name=sheet_name, usecols='A:H', header=8)
+df_participants = pd.read_excel(excel_file, sheet_name=sheet_name, usecols='A', header=1)
+
+
+streamlit.dataframe(df)
+streamlit.dataframe(df_participants)
