@@ -2,7 +2,6 @@ import pandas as pandas
 import streamlit as streamlit
 import plotly.express as px
 from PIL import Image
-import numpy as np
 
 ## PAGE OUTLINE
 streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
