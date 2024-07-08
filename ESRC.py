@@ -13,7 +13,7 @@ excel_file = "Retail face of the Endocannabinoid System Research Company.xlsm"
 sheetforlogin = "Sheet3"
 sheetforjournal = "Sheet8"
 sheetforreporting = "Sheet13"
-df_loginpage = pandas.read_excel(excel_file, engine = "openpyxl", usecols= "A, B", sheet_name=sheetforlogin, header = 4)
+df_loginpage = pandas.read_excel(excel_file, usecols= "A, B", sheet_name=sheetforlogin, header = 4)
 df_journal = pandas.read_excel(excel_file, sheet_name = sheetforjournal, header= 5)
 df = pandas.read_excel(excel_file, sheet_name=sheetforreporting, usecols='A:H', header = 4)
 df_financial = pandas.read_excel(excel_file, sheet_name=sheetforreporting, usecols="A, B, C, E", header = 4)
