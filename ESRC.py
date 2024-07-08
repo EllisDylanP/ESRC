@@ -55,7 +55,7 @@ if page == "Analysis":
             loginprocess(username, password)
             #streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
 elif page == "Journal":
-    streamlit.dataframe(df_journal)
+    streamlit.dataframe(df_journal, width = 1000, hide_index= True)
 
 
 DPEimage = Image.open("assets/DylanPeterEllislogo.jfif")
