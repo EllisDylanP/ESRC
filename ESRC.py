@@ -45,7 +45,7 @@ def loginprocess (username, password):
         }
     return filtered_indices
 
-page = streamlit.sidebar.selectbox("Choose a page", ['Analysis', 'Journal'])
+page = streamlit.sidebar.selectbox("Choose a page", ['Analysis', 'Submission','Journal'])
 if page == "Analysis":
     with streamlit.form("Login"):
         username = streamlit.text_input(label ="Username")
