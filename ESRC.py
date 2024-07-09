@@ -45,7 +45,7 @@ def loginprocess (username, password):
         }
     return filtered_indices
 
-page = streamlit.sidebar.selectbox("Choose a page", ['Analysis', 'Submission','Journal'])
+page = streamlit.sidebar.selectbox("Choose a page", ['Analysis', 'Consumption Consultation','Journal'])
 if page == "Analysis":
     with streamlit.form("Login"):
         username = streamlit.text_input(label ="Username")
@@ -54,7 +54,7 @@ if page == "Analysis":
         if submit_button:
             loginprocess(username, password)
             #streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
-elif page == "Submit to the ESRC":
+elif page == "Consumption Consultation":
     streamlit.header("Describe a situation you would like to have consultation regarding with cannabis")
     <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
         <input type="hidden" name=" _captcha" valie="false">
