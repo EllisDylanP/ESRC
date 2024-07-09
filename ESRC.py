@@ -49,7 +49,8 @@ def local_css(file_name):
            streamlit.markdown(f"<style>{f.read()}</styles>", unsafe_allow_html=True)
 
 #Page Navigator
-page = streamlit.sidebar.selectbox("Choose a page", ('Analysis', 'Consumption Consultation','Journal'))
+pages = ["Analysis", "Consumption Consultation", "Journal"]
+page = streamlit.sidebar.selectbox("Choose a page", pages)
 if page == "Analysis":
     with streamlit.form("Login"):
         username = streamlit.text_input(label ="Username")
