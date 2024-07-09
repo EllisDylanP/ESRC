@@ -54,6 +54,17 @@ if page == "Analysis":
         if submit_button:
             loginprocess(username, password)
             #streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
+elif page == "Submit to the ESRC":
+    streamlit.header("Describe a situation you would like to have consultation regarding with cannabis")
+    <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
+        <input type="hidden" name=" _captcha" valie="false">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Highlight aspects of your experience"></textarea>
+        <button type="submit">Send</button>
+    </form>
+    #streamlit.markdown
+    local_css("style/style.css")
 elif page == "Journal":
     streamlit.dataframe(df_journal, width = 1000, hide_index= True)
 
