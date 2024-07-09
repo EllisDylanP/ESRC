@@ -54,7 +54,7 @@ if page == "Analysis":
         if submit_button:
             loginprocess(username, password)
             #streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
-elif page == "Consumption Consultation":
+if page == "Consumption Consultation":
     streamlit.header("Describe a situation you would like to have consultation regarding with cannabis")
     <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
         <input type="hidden" name=" _captcha" valie="false">
