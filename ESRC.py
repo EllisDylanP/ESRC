@@ -57,7 +57,7 @@ if page == "Analysis":
 if page == "Consumption Consultation":
     streamlit.header("Describe a situation you would like to have consultation regarding with cannabis")
     <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
-        <input type="hidden" name=" _captcha" valie="false">
+        <input type="hidden" name=" _captcha" value="false">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Your email" required>
         <textarea name="message" placeholder="Highlight aspects of your experience"></textarea>
@@ -65,7 +65,7 @@ if page == "Consumption Consultation":
     </form>
     #streamlit.markdown
     local_css("style/style.css")
-elif page == "Journal":
+if page == "Journal":
     streamlit.dataframe(df_journal, width = 1000, hide_index= True)
 
 
