@@ -44,7 +44,11 @@ def loginprocess (username, password):
             streamlit.plotly_chart(financialreport)
         }
     return filtered_indices
+def local_css(file_name):
+        with open(file_name) as f:
+           streamlit.markdown(f"<style>{f.read()}</styles>", unsafe_allow_html=True)
 
+#Page Navigator
 page = streamlit.sidebar.selectbox("Choose a page", ['Analysis', 'Consumption Consultation','Journal'])
 if page == "Analysis":
     with streamlit.form("Login"):
