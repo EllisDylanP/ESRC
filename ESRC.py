@@ -48,9 +48,13 @@ def loginprocess (username, password):
     # Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
     streamlit_graphs = {
             streamlit.plotly_chart(HRreport),
+            streamlit.multiselect("Select the product:",options = df_HR["Product"].unique(),default = df_HR["Product"].unique())
             streamlit.plotly_chart(Oxyreport),
+            streamlit.multiselect("Select the product:",options = df_Oxy["Product"].unique(),default = df_Oxy["Product"].unique())
             streamlit.plotly_chart(PIreport),
-            streamlit.plotly_chart(financialreport)
+            streamlit.multiselect("Select the product:",options = df_PI["Product"].unique(),default = df_PI["Product"].unique())
+            streamlit.plotly_chart(financialreport),
+            streamlit.multiselect("Select the product:",options = df_financial["Product"].unique(),default = df_financial["Product"].unique())
         }
     return filtered_indices
 def local_css(file_name):
@@ -68,7 +72,7 @@ if page == "Analysis":
         streamlit.caption("Username and Password are case-sensitive")
         if submit_button:
             loginprocess(username, password)
-            streamlit.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
+            #streamlit.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
 elif page == "Consumption Consultation":
     streamlit.subheader("Describe a situation you would like to have consultation regarding with cannabis")
     contact_form = """
