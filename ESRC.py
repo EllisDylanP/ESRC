@@ -15,8 +15,7 @@ streamlit.markdown(
     unsafe_allow_html=True)
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
-streamlit.header("User Portal")
-streamlit.subheader("Biometric Analysis, Industry Outreach, and Publications are available")
+streamlit.header("User Portal - Biometric Analysis, Industry Outreach, and Publications are available")
 
 ## DATA
 excel_file = "Retail face of the Endocannabinoid System Research Company.xlsm"
@@ -71,7 +70,7 @@ if page == "Analysis":
             loginprocess(username, password)
             streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
 elif page == "Consumption Consultation":
-    streamlit.header("Describe a situation you would like to have consultation regarding with cannabis")
+    streamlit.subheader("Describe a situation you would like to have consultation regarding with cannabis")
     contact_form = """
     <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
         <input type="hidden" name=" _captcha" value="false">
