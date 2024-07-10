@@ -38,7 +38,7 @@ def loginprocess (username, password):
     
     # Get indices or rows from the filtered reference DataFrame
     filtered_indices = df[df.iloc[:, 0] == username].index
-    streamlit.multiselect("Select the product:",options = df[df.loc[filtered_indices]["Product"]].unique(),default = df[df.loc[filter_indeces]["Product"]].unique())
+    streamlit.multiselect("Select the product:",options = df[df[filtered_indices]["Product"]].unique(),default = df[df[filter_indeces]["Product"]].unique())
         
     # Filter other data tables using the filtered indices or rows
     HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart rate", title = "Heart Rate Metrics")
