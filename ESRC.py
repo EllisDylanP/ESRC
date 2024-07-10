@@ -66,12 +66,12 @@ if page == "Analysis":
         username = streamlit.text_input(label ="Username")
         password = streamlit.text_input(label = "Password", type = "password")
         submit_button = streamlit.form_submit_button(label="Login")
-        streamlit.write("Username and Password are case-sensitive", font=italics)
+        streamlit.caption("Username and Password are case-sensitive")
         if submit_button:
             loginprocess(username, password)
             streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
 elif page == "Consumption Consultation":
-    streamlit.header("Describe a situation you would like to have consultation regarding with cannabis", size=20)
+    streamlit.header("Describe a situation you would like to have consultation regarding with cannabis")
     contact_form = """
     <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
         <input type="hidden" name=" _captcha" value="false">
