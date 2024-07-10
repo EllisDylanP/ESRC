@@ -71,7 +71,7 @@ elif page == "Consumption Consultation":
     </form>
     """
     streamlit.markdown(contact_form, unsafe_allow_html = True)
-    local_css("style/style.css")
+    local_css("style.css.txt")
 elif page == "Journal":
     streamlit.dataframe(df_journal, width = 1000, hide_index= True)
 
