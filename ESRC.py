@@ -1,4 +1,4 @@
-import pandas as pandas
+eimport pandas as pandas
 import streamlit as streamlit
 import plotly.express as px
 from PIL import Image
@@ -37,8 +37,11 @@ def loginprocess (username, password):
         return "Authentication failed"
     
     # Get indices or rows from the filtered reference DataFrame
-    filtered_indices = df[df.iloc[:, 0] == username].index
-    streamlit.multiselect("Select the product:",options = df[df[filtered_indices]["Product"]].unique(),default = df[df[filter_indeces]["Product"]].unique())
+    filtered_index = df[df.iloc[:, 0] == username].index
+    new_df = df[df.iloc[:, 0] == username]
+    df_product = streamlit.multiselect("Select the product:",options = new_df["Product"].unique(),default = new_df["Product"].unique())
+    filtered_indices = df_product.index
+    
         
     # Filter other data tables using the filtered indices or rows
     HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart rate", title = "Heart Rate Metrics")
