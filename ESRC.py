@@ -40,7 +40,8 @@ def loginprocess (username, password):
     filtered_index = df[df.iloc[:, 0] == username].index
     new_df = df[df.iloc[:, 0] == username]
     df_product = streamlit.multiselect("Select the product:",options = new_df["Product"].unique(),default = new_df["Product"].unique())
-    filtered_indices = df_product.index
+    df_foranyfunction = ((df["USER ID"] == username) & (df["Product"] == streamlit.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique()))).any()
+    filtered_indices = df_foranyfunction.index
     
         
     # Filter other data tables using the filtered indices or rows
