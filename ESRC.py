@@ -15,7 +15,7 @@ streamlit.markdown(
     unsafe_allow_html=True)
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
-streamlit.header("The Endocannabinoid System Research Company - User Portal")
+streamlit.header("User Portal")
 streamlit.subheader("Biometric Analysis, Industry Outreach, and Publications are available")
 
 ## DATA
@@ -66,11 +66,12 @@ if page == "Analysis":
         username = streamlit.text_input(label ="Username")
         password = streamlit.text_input(label = "Password", type = "password")
         submit_button = streamlit.form_submit_button(label="Login")
+        streamlit.write("Username and Password are case-sensitive", font=italics)
         if submit_button:
             loginprocess(username, password)
-            #streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
+            streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
 elif page == "Consumption Consultation":
-    streamlit.header("Describe a situation you would like to have consultation regarding with cannabis")
+    streamlit.header("Describe a situation you would like to have consultation regarding with cannabis", size=20)
     contact_form = """
     <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
         <input type="hidden" name=" _captcha" value="false">
