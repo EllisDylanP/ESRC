@@ -15,7 +15,7 @@ streamlit.markdown(
     unsafe_allow_html=True)
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
-streamlit.header("The Endocannabinoid System Research Company - User Portal", text-align:center)
+streamlit.header("The Endocannabinoid System Research Company - User Portal")
 streamlit.subheader("Biometric Analysis, Industry Outreach, and Publications are available")
 
 ## DATA
