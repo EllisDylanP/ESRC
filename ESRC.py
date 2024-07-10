@@ -38,6 +38,7 @@ def loginprocess (username, password):
     
     # Get indices or rows from the filtered reference DataFrame
     filtered_indices = df[df.iloc[:, 0] == username].index
+    streamlit.multiselect("Select the product:",options = df[df.loc[filtered_indices]["Product"]].unique(),default = df[df.loc[filter_indeces]["Product"]].unique())
         
     # Filter other data tables using the filtered indices or rows
     HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart rate", title = "Heart Rate Metrics")
@@ -48,13 +49,9 @@ def loginprocess (username, password):
     # Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
     streamlit_graphs = {
             streamlit.plotly_chart(HRreport),
-            streamlit.multiselect("Select the product:",options = df_HR["Product"].unique(),default = df_HR["Product"].unique()),
             streamlit.plotly_chart(Oxyreport),
-            streamlit.multiselect("Select the product:",options = df_Oxy["Product"].unique(),default = df_Oxy["Product"].unique()),
             streamlit.plotly_chart(PIreport),
-            streamlit.multiselect("Select the product:",options = df_PI["Product"].unique(),default = df_PI["Product"].unique()),
-            streamlit.plotly_chart(financialreport),
-            streamlit.multiselect("Select the product:",options = df_financial["Product"].unique(),default = df_financial["Product"].unique())
+            streamlit.plotly_chart(financialreport)
         }
     return filtered_indices
 def local_css(file_name):
