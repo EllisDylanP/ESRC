@@ -1,4 +1,4 @@
-eimport pandas as pandas
+import pandas as pandas
 import streamlit as streamlit
 import plotly.express as px
 from PIL import Image
