@@ -61,6 +61,7 @@ if page == "Analysis":
             #streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
 elif page == "Consumption Consultation":
     streamlit.header("Describe a situation you would like to have consultation regarding with cannabis")
+    contact_form = """
     <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
         <input type="hidden" name=" _captcha" value="false">
         <input type="text" name="name" placeholder="Your name" required>
@@ -68,10 +69,11 @@ elif page == "Consumption Consultation":
         <textarea name="message" placeholder="Highlight aspects of your experience"></textarea>
         <button type="submit">Send</button>
     </form>
-    #streamlit.markdown
+    """
+    streamlit.markdown(contact_form, unsafe_allow_html = True)
     local_css("style/style.css")
-#if page == "Journal":
-    #streamlit.dataframe(df_journal, width = 1000, hide_index= True)
+elif page == "Journal":
+    streamlit.dataframe(df_journal, width = 1000, hide_index= True)
 
 
 DPEimage = Image.open("assets/DylanPeterEllislogo.jfif")
