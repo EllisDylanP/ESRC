@@ -48,11 +48,11 @@ def loginprocess (username, password):
     # Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
     streamlit_graphs = {
             streamlit.plotly_chart(HRreport),
-            streamlit.multiselect("Select the product:",options = df_HR["Product"].unique(),default = df_HR["Product"].unique())
+            streamlit.multiselect("Select the product:",options = df_HR["Product"].unique(),default = df_HR["Product"].unique()),
             streamlit.plotly_chart(Oxyreport),
-            streamlit.multiselect("Select the product:",options = df_Oxy["Product"].unique(),default = df_Oxy["Product"].unique())
+            streamlit.multiselect("Select the product:",options = df_Oxy["Product"].unique(),default = df_Oxy["Product"].unique()),
             streamlit.plotly_chart(PIreport),
-            streamlit.multiselect("Select the product:",options = df_PI["Product"].unique(),default = df_PI["Product"].unique())
+            streamlit.multiselect("Select the product:",options = df_PI["Product"].unique(),default = df_PI["Product"].unique()),
             streamlit.plotly_chart(financialreport),
             streamlit.multiselect("Select the product:",options = df_financial["Product"].unique(),default = df_financial["Product"].unique())
         }
