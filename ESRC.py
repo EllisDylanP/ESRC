@@ -68,7 +68,7 @@ if page == "Analysis":
         streamlit.caption("Username and Password are case-sensitive")
         if submit_button:
             loginprocess(username, password)
-            streamlit.df_financial.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
+            streamlit.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
 elif page == "Consumption Consultation":
     streamlit.subheader("Describe a situation you would like to have consultation regarding with cannabis")
     contact_form = """
