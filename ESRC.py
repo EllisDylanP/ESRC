@@ -41,7 +41,7 @@ def loginprocess (username, password):
     new_df = df[df.iloc[:, 0] == username]
     df_product = streamlit.multiselect("Select the product:",options = new_df["Product"].unique(),default = new_df["Product"].unique())
     df_forallfunction = ((df["USER ID"] == new_df) & (df["Product"] == new_df[df_product])).all()
-    filtered_indices = df_foranyfunction.index
+    filtered_indices = df_forallfunction.index
     streamlit.dataframe(new_df)
     streamlit.dataframe(df_product)
     streamlit.dataframe(df_forallfunction)
@@ -60,7 +60,11 @@ def loginprocess (username, password):
             streamlit.plotly_chart(PIreport),
             streamlit.plotly_chart(financialreport)
         }
-    return filtered_indices
+    return 
+    filtered_indices
+    streamlit.dataframe(new_df)
+    streamlit.dataframe(df_product)
+    streamlit.dataframe(df_forallfunction)
 def local_css(file_name):
         with open(file_name) as f:
            streamlit.markdown(f"<style>{f.read()}</styles>", unsafe_allow_html=True)
