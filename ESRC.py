@@ -40,17 +40,17 @@ def loginprocess (username, password):
     filtered_indeces = df[df.iloc[:, 0] == username].index
     
     # Filter other data tables using the filtered indices or rows
-    #HRreport = px.line(df_HR.loc[filtered_indeces],  x = "Date", y = "Heart rate", title = "Heart Rate Metrics")
-    #Oxyreport = px.line(df_Oxy.loc[filtered_indeces],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics")
-    #PIreport = px.line(df_PI.loc[filtered_indeces],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report")
-    #financialreport = px.line(df_financial.loc[filtered_indeces], x="Date", y="Price", title = "Financial Report")
+    HRreport = px.line(df_HR.loc[filtered_indeces],  x = "Date", y = "Heart rate", title = "Heart Rate Metrics")
+    Oxyreport = px.line(df_Oxy.loc[filtered_indeces],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics")
+    PIreport = px.line(df_PI.loc[filtered_indeces],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report")
+    Financialreport = px.line(df_financial.loc[filtered_indeces], x="Date", y="Price", title = "Financial Report")
         
     # Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
     streamlit_graphs = {
             streamlit.plotly_chart(HRreport),
             streamlit.plotly_chart(Oxyreport),
             streamlit.plotly_chart(PIreport),
-            streamlit.plotly_chart(financialreport)
+            streamlit.plotly_chart(Financialreport)
         }
     return streamlit_graphs
 def local_css(file_name):
