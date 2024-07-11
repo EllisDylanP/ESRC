@@ -37,35 +37,22 @@ def loginprocess (username, password):
         return "Authentication failed"
     
     # Get indices or rows from the filtered reference DataFrame
-    #filtered_index = df[df.iloc[:, 0] == username].index
-    new_df = df[df.iloc[:, 0] == username]
-    df_product = streamlit.multiselect("Select the product:",options = new_df["Product"].unique(),default = new_df["Product"].unique())
-    #df_forallfunction = ((df["USER ID"] == new_df) & (df["Product"] == new_df[df_product])).all()
-    #filtered_indices = df_forallfunction.index
-    #streamlit.dataframe(new_df)
-    #streamlit.dataframe(df_product)
-    #streamlit.dataframe(df_forallfunction)
+    filtered_indeces = df[df.iloc[:, 0] == username].index
     
-        
     # Filter other data tables using the filtered indices or rows
-    #HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart rate", title = "Heart Rate Metrics")
-    #Oxyreport = px.line(df_Oxy.loc[filtered_indices],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics")
-    #PIreport = px.line(df_PI.loc[filtered_indices],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report")
-    #financialreport = px.line(df_financial.loc[filtered_indices], x="Date", y="Price", title = "Financial Report")
+    #HRreport = px.line(df_HR.loc[filtered_indeces],  x = "Date", y = "Heart rate", title = "Heart Rate Metrics")
+    #Oxyreport = px.line(df_Oxy.loc[filtered_indeces],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics")
+    #PIreport = px.line(df_PI.loc[filtered_indeces],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report")
+    #financialreport = px.line(df_financial.loc[filtered_indeces], x="Date", y="Price", title = "Financial Report")
         
     # Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
-    #streamlit_graphs = {
-            #streamlit.plotly_chart(HRreport),
-            #streamlit.plotly_chart(Oxyreport),
-            #streamlit.plotly_chart(PIreport),
-            #streamlit.plotly_chart(financialreport)
-        #}
-    return 
-    #filtered_indices
-    streamlit.dataframe(new_df)
-    streamlit.dataframe(df_product)
-    #streamlit.dataframe(df_forallfunction)
-    streamlit.dataframe(df)
+    streamlit_graphs = {
+            streamlit.plotly_chart(HRreport),
+            streamlit.plotly_chart(Oxyreport),
+            streamlit.plotly_chart(PIreport),
+            streamlit.plotly_chart(financialreport)
+        }
+    return streamlit_graphs
 def local_css(file_name):
         with open(file_name) as f:
            streamlit.markdown(f"<style>{f.read()}</styles>", unsafe_allow_html=True)
