@@ -64,7 +64,7 @@ def loginprocess (username, password):
     #filtered_indices
     streamlit.dataframe(new_df)
     streamlit.dataframe(df_product)
-    streamlit.dataframe(df_forallfunction)
+    #streamlit.dataframe(df_forallfunction)
     streamlit.dataframe(df)
 def local_css(file_name):
         with open(file_name) as f:
