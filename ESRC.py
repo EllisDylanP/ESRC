@@ -54,13 +54,13 @@ def loginprocess (username, password):
     #financialreport = px.line(df_financial.loc[filtered_indices], x="Date", y="Price", title = "Financial Report")
         
     # Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
-    streamlit_graphs = {
-            streamlit.plotly_chart(HRreport),
-            streamlit.plotly_chart(Oxyreport),
-            streamlit.plotly_chart(PIreport),
-            streamlit.plotly_chart(financialreport)
+    #streamlit_graphs = {
+            #streamlit.plotly_chart(HRreport),
+            #streamlit.plotly_chart(Oxyreport),
+            #streamlit.plotly_chart(PIreport),
+            #streamlit.plotly_chart(financialreport)
         }
-    return 
+return 
     #filtered_indices
     streamlit.dataframe(new_df)
     streamlit.dataframe(df_product)
