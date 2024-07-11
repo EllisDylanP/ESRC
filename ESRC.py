@@ -59,7 +59,7 @@ def loginprocess (username, password):
             #streamlit.plotly_chart(Oxyreport),
             #streamlit.plotly_chart(PIreport),
             #streamlit.plotly_chart(financialreport)
-        }
+        #}
 return 
     #filtered_indices
     streamlit.dataframe(new_df)
