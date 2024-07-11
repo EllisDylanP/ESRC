@@ -61,7 +61,7 @@ def loginprocess (username, password):
             streamlit.plotly_chart(financialreport)
         }
     return 
-    filtered_indices
+    #filtered_indices
     streamlit.dataframe(new_df)
     streamlit.dataframe(df_product)
     streamlit.dataframe(df_forallfunction)
