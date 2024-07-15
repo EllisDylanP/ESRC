@@ -42,7 +42,7 @@ def loginprocess (username, password):
     filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == username].index
     
     # Filter other data tables using the filtered indices or rows
-    HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart rate", title = "Heart Rate Metrics")
+    HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart Rate", title = "Heart Rate Metrics")
     Oxyreport = px.line(df_Oxy.loc[filtered_indices],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics")
     PIreport = px.line(df_PI.loc[filtered_indices],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report")
     Financialreport = px.line(df_financial.loc[filtered_indices], x="Date", y="Price", title = "Financial Report")
