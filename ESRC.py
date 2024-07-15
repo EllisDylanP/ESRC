@@ -80,6 +80,7 @@ elif page == "Consumption Consultation":
         <input type="email" name="email" placeholder="Your email" required>
         <textarea name="message" placeholder="Highlight aspects of your experience"></textarea>
         <button type="submit">Send</button>
+        <clear_on_submit = True>
     </form>
     """
     streamlit.markdown(contact_form, unsafe_allow_html = True)
