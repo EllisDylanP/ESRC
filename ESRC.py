@@ -67,7 +67,7 @@ if page == "Analysis":
         username = streamlit.text_input(label ="Username")
         password = streamlit.text_input(label = "Password", type = "password")
         submit_button = streamlit.form_submit_button(label="Login")
-        streamlit.caption("Username and Password are case-sensitive")
+        streamlit.caption("Usernames and Passwords are case-sensitive")
         if submit_button:
             loginprocess(username, password)
             #streamlit.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
