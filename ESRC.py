@@ -72,7 +72,7 @@ if page == "Analysis":
             loginprocess(username, password)
             #streamlit.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
 elif page == "Consumption Consultation":
-    streamlit.subheader("Describe a situation you would like to have consultation regarding with cannabis")
+    streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
     contact_form = """
     <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
         <input type="hidden" name=" _captcha" value="false">
