@@ -90,4 +90,4 @@ elif page == "Journal":
 
 
 DPEimage = Image.open("assets/DylanPeterEllislogo.jfif")
-streamlit.image(DPEimage, caption = "Dylan Peter Ellis", use_column_width= 100)
+streamlit.image(DPEimage, caption = "Dylan Peter Ellis", use_container_width= 100)
