@@ -19,15 +19,18 @@ streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach,
 
 ## DATA
 UsernameAndPassword = streamlit.file_uploader("Username and Password.csv")
+for UsernameAndPassword in UsernameAndPassword:
+    df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= "A, B", header = 4)
 Activity = streamlit.file_uploader("Activity.csv")
+for Activity in Activity:
+    df = pandas.read_csv(Activity, usecols='A:H', header = 4)
+    df_financial = pandas.read_csv(Activity, usecols="A, B, C, E", header = 4)
+    df_HR = pandas.read_csv(Activity, usecols='A, B, C, F', header = 4)
+    df_Oxy = pandas.read_csv(Activity, usecols='A, B, C, G', header = 4)
+    df_PI = pandas.read_csv(Activity, usecols='A, B, C, H', header = 4)
 Journal = streamlit.file_uploader("Journal.csv")
-df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= "A, B", header = 4)
-df_journal = pandas.read_csv(Journal, header= 7)
-df = pandas.read_csv(Activity, usecols='A:H', header = 4)
-df_financial = pandas.read_csv(Activity, usecols="A, B, C, E", header = 4)
-df_HR = pandas.read_csv(Activity, usecols='A, B, C, F', header = 4)
-df_Oxy = pandas.read_csv(Activity, usecols='A, B, C, G', header = 4)
-df_PI = pandas.read_csv(Activity, usecols='A, B, C, H', header = 4)
+for Journal in Journal:
+    df_journal = pandas.read_csv(Journal, header= 7)
 
 with streamlit.form(key = "Registration"):
     Username=streamlit.text_input("Username")
