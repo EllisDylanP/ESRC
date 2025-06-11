@@ -22,7 +22,7 @@ UsernameAndPassword = "Username and Password.csv"
 Activity = "Activity.csv"
 Journal = "Journal.csv"
 df_loginpage = pandas.read_excel(UsernameAndPassword, usecols= "A, B", header = 4)
-df_journal = pandas.read_excel(Journal, header= 5)
+df_journal = pandas.read_excel(Journal, header= 7)
 df = pandas.read_excel(Activity, usecols='A:H', header = 4)
 df_financial = pandas.read_excel(Activity, usecols="A, B, C, E", header = 4)
 df_HR = pandas.read_excel(Activity, usecols='A, B, C, F', header = 4)
@@ -50,33 +50,12 @@ with streamlit.form(key = "New Entry"):
     OxygenSaturation = streamlit.number_input("Oxygen Saturation")
     PerfusionIndex = streamlit.number_input("Perfusion Index")
 
-## REGISTRATION
-def registration(registrationtable):
-    Streamlit.table[Username] = registrationtable[1]
-    Streamlit.table[Password] = registrationtable[2]
-    Streamlit.table[Phone Number] = registrationtable[3]
-    Streamlit.table[Email] = registrationtable[4]
-    Streamlit.option["SME"].value() = registrationtable[5]
-    Streamlit.option["Retailer"].value() = registrationtable[6]
-    registrationtable[(Usernumber).value()][(Usernumber + 1).row()] = registrationtable[Usernumber] 
-    registrationtable[date][getdate().value()] = registrationtable[date]
-    streamlit.button("Register")
-    return(registrationtable)
-
 
 ## LOGIN USER INTERFACE
 def loginprocess (username, password):
     userexists = ((df_loginpage["USER ID"] == username) & (df_loginpage["PASSWORD"] == password)).any()
     if not userexists:
         return "Authentication failed"
-    
-    streamlit.button("Add a new entry")
-    streamlit.table("Product, Quantity, Price, Heart Rate, Perfusion Index, Oxygen saturation")
-    streamlit.table([Blank], [Blank], [Blank], [Blank], [Blank], [Blank])
-    streamlit.button("New row")
-    streamlit.button("New row") --> ([Blank], [Blank], [Blank], ["Heartrate"][Heart rate value][1], ["Perfusion Index"][Perfusion Index][1], ["Oxygen Saturation"][Oxygen Saturation value][1])
-    Streamlit.button("Submit")
-    df.write(streamlit.table("Product, Quantity, Price, Heart Rate, Perfusion Index, Oxygen saturation"))
 
     
     # Get indices or rows from the filtered reference DataFrame
