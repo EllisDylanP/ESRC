@@ -18,9 +18,9 @@ streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Compan
 streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach, and Publications")
 
 ## DATA
-UsernameAndPassword = "Username and Password.csv"
-Activity = "Activity.csv"
-Journal = "Journal.csv"
+UsernameAndPassword = streamlit.file_uploader("Username and Password.csv")
+Activity = streamlit.file_uploader("Activity.csv")
+Journal = streamlit.file_uploader("Journal.csv")
 df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= "A, B", header = 4)
 df_journal = pandas.read_csv(Journal, header= 7)
 df = pandas.read_csv(Activity, usecols='A:H', header = 4)
