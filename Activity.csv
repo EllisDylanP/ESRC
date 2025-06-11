@@ -1,0 +1,20 @@
+﻿USER ID,Date,Product,Quantity, Price ,Heart Rate,Oxygen Saturation,Perfusion Index
+samantha,6/16/2024,beverage,3, $4.50 ,47,12,4.5
+dylan,6/16/2024,flower,3.5, $35.00 ,45,21,23
+dylan,6/17/2024,beverage,1, $10.00 ,46,33,34
+samantha,6/16/2024,tincture,2, $20.00 ,48,99,20
+samantha,6/16/2024,edible,1, $5.00 ,49,99,20
+samantha,6/16/2024,flower,3.5, $35.00 ,50,99,20
+samantha,6/16/2024,topical,20, $30.00 ,55,99,20
+samantha,6/16/2024,beverage,1, $5.00 ,43,99,20
+samantha,6/16/2024,topical,1, $10.00 ,60,20,12
+samantha,7/6/2024,flower,40, $800.00 ,55,99,20
+dylan,6/18/2024,topical,1, $15.00 ,47,344,12
+dylan,6/19/2024,beverage,1, $10.00 ,48,234,45
+dylan,6/19/2024,edible,1, $10.00 ,49,242,24
+dylan,6/20/2024,tincture,1, $10.00 ,50,44,134
+dylan,6/21/2024,flower,1, $10.00 ,51,23,24
+dylan,6/22/2024,vapor,1, $10.00 ,52,123,245
+dylan,7/14/2024,concentrate,5, $250.00 ,53,1234,245
+dylan,6/10/2025,flower,1, $10.00 ,45,99,20
+dylan,6/10/2025,topical,1, $0.25 ,45,99,20
