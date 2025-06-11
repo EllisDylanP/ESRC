@@ -21,13 +21,13 @@ streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach,
 UsernameAndPassword = "Username and Password.csv"
 Activity = "Activity.csv"
 Journal = "Journal.csv"
-df_loginpage = pandas.read_excel(UsernameAndPassword, usecols= "A, B", header = 4)
-df_journal = pandas.read_excel(Journal, header= 7)
-df = pandas.read_excel(Activity, usecols='A:H', header = 4)
-df_financial = pandas.read_excel(Activity, usecols="A, B, C, E", header = 4)
-df_HR = pandas.read_excel(Activity, usecols='A, B, C, F', header = 4)
-df_Oxy = pandas.read_excel(Activity, usecols='A, B, C, G', header = 4)
-df_PI = pandas.read_excel(Activity, usecols='A, B, C, H', header = 4)
+df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= "A, B", header = 4)
+df_journal = pandas.read_csv(Journal, header= 7)
+df = pandas.read_csv(Activity, usecols='A:H', header = 4)
+df_financial = pandas.read_csv(Activity, usecols="A, B, C, E", header = 4)
+df_HR = pandas.read_csv(Activity, usecols='A, B, C, F', header = 4)
+df_Oxy = pandas.read_csv(Activity, usecols='A, B, C, G', header = 4)
+df_PI = pandas.read_csv(Activity, usecols='A, B, C, H', header = 4)
 
 with streamlit.form(key = "Registration"):
     Username=streamlit.text_input("Username")
