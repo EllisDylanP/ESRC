@@ -20,7 +20,7 @@ streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach,
 ## DATA
 UsernameAndPassword = "Username and Password.csv"
 ##for UsernameAndPassword in UsernameAndPassword:
-df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= "A, B", header = 4)
+df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= ["A, B"], header = 4)
 Activity = "Activity.csv"
 ##for Activity in Activity:
 df = pandas.read_csv(Activity, usecols='A:H', header = 4)
