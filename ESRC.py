@@ -24,10 +24,10 @@ df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= "A, B", header = 4)
 Activity = "Activity.csv"
 ##for Activity in Activity:
 df = pandas.read_csv(Activity, usecols='A:H', header = 4)
-df_financial = pandas.read_csv(Activity, usecols="A, B, C, E", header = 4)
-df_HR = pandas.read_csv(Activity, usecols='A, B, C, F', header = 4)
-df_Oxy = pandas.read_csv(Activity, usecols='A, B, C, G', header = 4)
-df_PI = pandas.read_csv(Activity, usecols='A, B, C, H', header = 4)
+df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
+df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
+df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
+df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
 Journal = "Journal.csv"
 ##for Journal in Journal:
 df_journal = pandas.read_csv(Journal, header= 7)
