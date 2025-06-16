@@ -20,7 +20,7 @@ headers = {
     "Accept": "application/vnd.github.v3+json"
 }
 
-# Load CSV and SHA from GitHub
+##Load CSV and SHA from GitHub
 @st.cache_data(ttl=60)
 def load_csv_from_github():
     res = requests.get(api_url, headers=headers, params={"ref": branch})
@@ -31,7 +31,7 @@ def load_csv_from_github():
     df = pd.read_csv(io.StringIO(decoded_content))
     return df, sha
 
-# Save updated CSV to GitHub
+##Save updated CSV to GitHub
 def save_csv_to_github(df, sha):
     csv_buffer = io.StringIO()
     df.to_csv(csv_buffer, index=False)
@@ -47,10 +47,10 @@ def save_csv_to_github(df, sha):
     response = requests.put(api_url, headers=headers, data=json.dumps(data))
     return response
 
-# Step 1: Load CSV
+##Step 1: Load CSV
 df, sha = load_csv_from_github()
 
-# Step 2: Show Form
+##Step 2: Show Form
 st.title("Update CSV on GitHub via Streamlit Form")
 
 with st.form("Registration", clear_on_submit=True):
@@ -73,7 +73,7 @@ with st.form("Registration", clear_on_submit=True):
             st.error("Failed to update CSV on GitHub.")
             st.json(response.json())
 
-# Show the updated DataFrame
+##Show the updated DataFrame
 st.subheader("Current CSV Data")
 st.dataframe(df)
 
