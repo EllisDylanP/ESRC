@@ -2,6 +2,82 @@ import pandas as pandas
 import streamlit as streamlit
 import plotly.express as px
 from PIL import Image
+import requests
+import base64
+import io
+import json
+
+token = st.secrets["github"]["token"]
+username = st.secrets["github"]["username"]
+repo = st.secrets["github"]["repo"]
+branch = st.secrets["github"].get("branch", "main")
+file_path = st.secrets["github"]["file_path"]
+
+api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
+
+headers = {
+    "Authorization": f"token {token}",
+    "Accept": "application/vnd.github.v3+json"
+}
+
+# Load CSV and SHA from GitHub
+@st.cache_data(ttl=60)
+def load_csv_from_github():
+    res = requests.get(api_url, headers=headers, params={"ref": branch})
+    res.raise_for_status()
+    content = res.json()
+    sha = content["sha"]
+    decoded_content = base64.b64decode(content["content"]).decode()
+    df = pd.read_csv(io.StringIO(decoded_content))
+    return df, sha
+
+# Save updated CSV to GitHub
+def save_csv_to_github(df, sha):
+    csv_buffer = io.StringIO()
+    df.to_csv(csv_buffer, index=False)
+    encoded_content = base64.b64encode(csv_buffer.getvalue().encode()).decode()
+
+    data = {
+        "message": "Update CSV from Streamlit form",
+        "content": encoded_content,
+        "sha": sha,
+        "branch": branch,
+    }
+
+    response = requests.put(api_url, headers=headers, data=json.dumps(data))
+    return response
+
+# Step 1: Load CSV
+df, sha = load_csv_from_github()
+
+# Step 2: Show Form
+st.title("Update CSV on GitHub via Streamlit Form")
+
+with st.form("entry_form", clear_on_submit=True):
+    name = st.text_input("Name")
+    email = st.text_input("Email")
+    age = st.number_input("Age", min_value=0, step=1)
+    submitted = st.form_submit_button("Submit")
+
+    if submitted:
+        new_row = {"Name": name, "Email": email, "Age": int(age)}
+        df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
+        response = save_csv_to_github(df, sha)
+        if response.status_code in [200, 201]:
+            st.success("Data added and CSV updated successfully.")
+        else:
+            st.error("Failed to update CSV on GitHub.")
+            st.json(response.json())
+
+# Show the updated DataFrame
+st.subheader("Current CSV Data")
+st.dataframe(df)
+
+
+
+
+
+
 
 ## PAGE OUTLINE
 streamlit.markdown(
@@ -15,7 +91,7 @@ streamlit.markdown(
     unsafe_allow_html=True)
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
-streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach, and Publications")
+streamlit.header("<u>User Portal - Access to Biometric Analysis, Industry Outreach, and Publications</u>")
 
 ## DATA
 UsernameAndPassword = "Username and Password.csv"
