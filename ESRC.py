@@ -10,7 +10,7 @@ import json
 token = st.secrets["github"]["token"]
 username = st.secrets["github"]["username"]
 repo = st.secrets["github"]["repo"]
-branch = st.secrets["github"].get("branch", "main")
+branch = st.secrets["github"].get("branch", "master")
 file_path = st.secrets["github"]["file_path"]
 
 api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
@@ -53,14 +53,18 @@ df, sha = load_csv_from_github()
 # Step 2: Show Form
 st.title("Update CSV on GitHub via Streamlit Form")
 
-with st.form("entry_form", clear_on_submit=True):
-    name = st.text_input("Name")
-    email = st.text_input("Email")
-    age = st.number_input("Age", min_value=0, step=1)
-    submitted = st.form_submit_button("Submit")
+with st.form("Registration", clear_on_submit=True):
+    UserID = st.text_input("Name")
+    Password = st.text_input("Email")
+    PhoneNumber = st.number_input("Phone Number")
+    Email = st.text_input("Email")
+    SME = streamlit.checkbox("SME")
+    Retailer = streamlit.checkbox("Retailer")
+    Date = streamlit.date()
+    Reistered = st.form_submit_button("Registered")
 
     if submitted:
-        new_row = {"Name": name, "Email": email, "Age": int(age)}
+        new_row = {"Username": User ID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": date(Date)}
         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
         response = save_csv_to_github(df, sha)
         if response.status_code in [200, 201]:
@@ -93,41 +97,20 @@ streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Compan
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
 streamlit.header("<u>User Portal - Access to Biometric Analysis, Industry Outreach, and Publications</u>")
 
+
 ## DATA
 UsernameAndPassword = "Username and Password.csv"
-##for UsernameAndPassword in UsernameAndPassword:
 df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= ["A, B"], header = 4)
+
 Activity = "Activity.csv"
-##for Activity in Activity:
 df = pandas.read_csv(Activity, usecols='A:H', header = 4)
 df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
 df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
 df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
 df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
+
 Journal = "Journal.csv"
-##for Journal in Journal:
 df_journal = pandas.read_csv(Journal, header= 7)
-
-with streamlit.form(key = "Registration"):
-    Username=streamlit.text_input("Username")
-    Password=streamlit.text_input("Password")
-    Email=streamlit.text_input("Email")
-    PhoneNumber=streamlit.text_input("Phone Number")
-    SubjectMatterExpert=streamlit.option("Subject Matter Expert")
-    Retailer=streamlit.option("Retailer")
-    RegistrationComplete = streamlit.form_submit_button("Register")
-    #UserIDNumber=streamlit.number_input("Username and Password.csv".row() + 1)
-    #Date=streamlit.write(date)
-
-with streamlit.form(key = "New Entry"):
-    UserID = df_loginpage["USER ID"]
-    Date = streamlit.write(date)
-    Product = streamlit.text_input("Product")
-    Quantity = streamlit.text_input("Quantity")
-    Price = streamlit.text_input("Price")
-    HeartRate = streamlit.number_input("Heart Rate")
-    OxygenSaturation = streamlit.number_input("Oxygen Saturation")
-    PerfusionIndex = streamlit.number_input("Perfusion Index")
 
 
 ## LOGIN USER INTERFACE
