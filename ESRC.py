@@ -50,14 +50,14 @@ df, sha = load_csv_from_github()
 streamlit.title("Update CSV on GitHub via Streamlit Form")
 
 Registration = streamlit.form("Registration", clear_on_submit=True)
-    UserID = Registration.text_input("Name")
-    Password = Registration.text_input("Email")
-    PhoneNumber = Registration.number_input("Phone Number")
-    Email = Registration.text_input("Email")
-    SME = Registration.checkbox("SME")
-    Retailer = Registration.checkbox("Retailer")
-    Date = Registration.date()
-    Reistered = Registration.form_submit_button("Registered")
+UserID = Registration.text_input("Name")
+Password = Registration.text_input("Email")
+PhoneNumber = Registration.number_input("Phone Number")
+Email = Registration.text_input("Email")
+SME = Registration.checkbox("SME")
+Retailer = Registration.checkbox("Retailer")
+Date = Registration.date()
+Reistered = Registration.form_submit_button("Registered")
 
     if Registered:
         new_row = {"Username": User ID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": Date}
