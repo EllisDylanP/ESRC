@@ -59,15 +59,15 @@ Retailer = Registration.checkbox("Retailer")
 Date = Registration.date()
 Reistered = Registration.form_submit_button("Registered")
 
-    if Registered:
-        new_row = {"Username": User ID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": Date}
-        df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
-        response = save_csv_to_github(df, sha)
-        if response.status_code in [200, 201]:
-            streamlit.success("Data added and CSV updated successfully.")
-        else:
-            streamlit.error("Failed to update CSV on GitHub.")
-            streamlit.json(response.json())
+if Registered:
+    new_row = {"Username": User ID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": Date}
+    df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
+    response = save_csv_to_github(df, sha)
+    if response.status_code in [200, 201]:
+        streamlit.success("Data added and CSV updated successfully.")
+    else:
+        streamlit.error("Failed to update CSV on GitHub.")
+        streamlit.json(response.json())
 
 streamlit.subheader("Current CSV Data")
 streamlit.dataframe(df)
