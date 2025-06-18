@@ -7,11 +7,11 @@ import base64
 import io
 import json
 
-token = st.secrets["github"]["token"]
-username = st.secrets["github"]["username"]
-repo = st.secrets["github"]["repo"]
-branch = st.secrets["github"].get("branch", "master")
-file_path = st.secrets["github"]["file_path"]
+token = streamlit.secrets["github"]["token"]
+username = streamlit.secrets["github"]["username"]
+repo = streamlit.secrets["github"]["repo"]
+branch = streamlit.secrets["github"].get("branch", "master")
+file_path = streamlit.secrets["github"]["file_path"]
 
 api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
 
@@ -20,8 +20,7 @@ headers = {
     "Accept": "application/vnd.github.v3+json"
 }
 
-##Load CSV and SHA from GitHub
-@st.cache_data(ttl=60)
+@streamlit.cache_data(ttl=60)
 def load_csv_from_github():
     res = requests.get(api_url, headers=headers, params={"ref": branch})
     res.raise_for_status()
@@ -31,7 +30,6 @@ def load_csv_from_github():
     df = pd.read_csv(io.StringIO(decoded_content))
     return df, sha
 
-##Save updated CSV to GitHub
 def save_csv_to_github(df, sha):
     csv_buffer = io.StringIO()
     df.to_csv(csv_buffer, index=False)
@@ -47,35 +45,32 @@ def save_csv_to_github(df, sha):
     response = requests.put(api_url, headers=headers, data=json.dumps(data))
     return response
 
-##Step 1: Load CSV
 df, sha = load_csv_from_github()
 
-##Step 2: Show Form
-st.title("Update CSV on GitHub via Streamlit Form")
+streamlit.title("Update CSV on GitHub via Streamlit Form")
 
-with st.form("Registration", clear_on_submit=True):
-    UserID = st.text_input("Name")
-    Password = st.text_input("Email")
-    PhoneNumber = st.number_input("Phone Number")
-    Email = st.text_input("Email")
-    SME = streamlit.checkbox("SME")
-    Retailer = streamlit.checkbox("Retailer")
-    Date = streamlit.date()
-    Reistered = st.form_submit_button("Registered")
+Registration = streamlit.form("Registration", clear_on_submit=True):
+    UserID = Registration.text_input("Name")
+    Password = Registration.text_input("Email")
+    PhoneNumber = Registration.number_input("Phone Number")
+    Email = Registration.text_input("Email")
+    SME = Registration.checkbox("SME")
+    Retailer = Registration.checkbox("Retailer")
+    Date = Registration.date()
+    Reistered = Registration.form_submit_button("Registered")
 
-    if submitted:
-        new_row = {"Username": User ID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": date(Date)}
+    if Registered:
+        new_row = {"Username": User ID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": Date}
         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
         response = save_csv_to_github(df, sha)
         if response.status_code in [200, 201]:
-            st.success("Data added and CSV updated successfully.")
+            streamlit.success("Data added and CSV updated successfully.")
         else:
-            st.error("Failed to update CSV on GitHub.")
-            st.json(response.json())
+            streamlit.error("Failed to update CSV on GitHub.")
+            streamlit.json(response.json())
 
-##Show the updated DataFrame
-st.subheader("Current CSV Data")
-st.dataframe(df)
+streamlit.subheader("Current CSV Data")
+streamlit.dataframe(df)
 
 
 
