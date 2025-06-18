@@ -49,7 +49,7 @@ df, sha = load_csv_from_github()
 
 streamlit.title("Update CSV on GitHub via Streamlit Form")
 
-Registration = streamlit.form("Registration", clear_on_submit=True):
+Registration = streamlit.form("Registration", clear_on_submit=True)
     UserID = Registration.text_input("Name")
     Password = Registration.text_input("Email")
     PhoneNumber = Registration.number_input("Phone Number")
