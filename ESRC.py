@@ -60,7 +60,7 @@ Date = Registration.date()
 Reistered = Registration.form_submit_button("Registered")
 
 if Registered:
-    new_row = {"Username": User ID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": Date}
+    new_row = {"Username": UserID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": Date}
     df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
     response = save_csv_to_github(df, sha)
     if response.status_code in [200, 201]:
