@@ -29,7 +29,7 @@ headers = {
 
 ## API CODE 
 UsernameAndPassword = "Username and Password.csv"
-df = pandas.read_csv(UsernameAndPassword, usecols= ["A, B"], header = 4)
+df = pandas.read_csv(UsernameAndPassword, usecols= ["User ID, Password"], header = 4)
 
 @streamlit.cache_data(ttl=60)
 def load_original_data():
