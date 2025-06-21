@@ -27,7 +27,7 @@ def load_original_data():
     if response.status_code == 200:
         return pd.read_csv(StringIO(response.text))
     else:
-        st.error("Failed to load data from GitHub.")
+        streamlit.error("Failed to load data from GitHub.")
         return None
 
 def save_csv_to_github(df, sha):
