@@ -21,14 +21,14 @@ headers = {
 }
 
 @streamlit.cache_data(ttl=60)
-def load_csv_from_github():
-    res = requests.get(api_url, headers=headers, params={"ref": branch})
-    res.raise_for_status()
-    content = res.json()
-    sha = content["sha"]
-    decoded_content = base64.b64decode(content["content"]).decode()
-    df = pd.read_csv(io.StringIO(decoded_content))
-    return df, sha
+def load_original_data():
+    url = 'https://raw.githubusercontent.com/[username]/[repo]/[branch]/[file].csv'
+    response = requests.get(url)
+    if response.status_code == 200:
+        return pd.read_csv(StringIO(response.text))
+    else:
+        st.error("Failed to load data from GitHub.")
+        return None
 
 def save_csv_to_github(df, sha):
     csv_buffer = io.StringIO()
