@@ -29,7 +29,7 @@ headers = {
 
 ## API CODE 
 UsernameAndPassword = "Username and Password.csv"
-df = pandas.read_csv(UsernameAndPassword, usecols= ["User ID, Password"], header = 4)
+df = pandas.read_csv(UsernameAndPassword, usecols= ["username, password"], header = 4)
 
 @streamlit.cache_data(ttl=60)
 def load_original_data():
@@ -60,17 +60,17 @@ df, sha = load_original_data()
 streamlit.title("Update CSV on GitHub via Streamlit Form")
 
 Registration = streamlit.form("Registration", clear_on_submit=True)
-UserID = Registration.text_input("Name")
-Password = Registration.text_input("Email")
-PhoneNumber = Registration.number_input("Phone Number")
-Email = Registration.text_input("Email")
-SME = Registration.checkbox("SME")
-Retailer = Registration.checkbox("Retailer")
-Date = Registration.date()
-Reistered = Registration.form_submit_button("Registered")
+username = Registration.text_input("Name")
+password = Registration.text_input("Email")
+phonenumber = Registration.number_input("Phone Number")
+email = Registration.text_input("Email")
+sme = Registration.checkbox("SME")
+retailer = Registration.checkbox("Retailer")
+date = Registration.date()
+registered = Registration.form_submit_button("Registered")
 
 if Registered:
-    new_row = {"Username": UserID, "Password": Password, "Phone Number": int(PhoneNumber), "Email": Email, "SME": SME, "Retailer": Retailer, "Date": Date}
+    new_row = {"username": username, "password": password, "phonenumber": int(phonenumber), "email": email, "sme": sme, "retailer": retailer, "date": date}
     df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
     response = save_csv_to_github(df, sha)
     if response.status_code in [200, 201]:
