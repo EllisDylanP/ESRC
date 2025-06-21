@@ -45,7 +45,7 @@ def save_csv_to_github(df, sha):
     response = requests.put(api_url, headers=headers, data=json.dumps(data))
     return response
 
-df, sha = load_csv_from_github()
+df, sha = load_original_data()
 
 streamlit.title("Update CSV on GitHub via Streamlit Form")
 
