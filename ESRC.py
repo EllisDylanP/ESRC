@@ -44,7 +44,7 @@ def load_original_data():
 def save_csv_to_github(df, sha):
     csv_buffer = io.StringIO()
     df.to_csv(csv_buffer, index=False)
-    encoded_content = base64.b64encode(csv_buffer.getvalue().encode()).decode()
+    encoded_content = base64.b64encode(csv_buffer.getvalue().encode()).decode())
 
     data = {
         "message": "Update CSV from Streamlit form",
