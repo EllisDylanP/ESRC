@@ -7,6 +7,10 @@ import base64
 import io
 import json
 
+
+
+
+## API RESOURCES
 token = streamlit.secrets["github"]["token"]
 username = streamlit.secrets["github"]["username"]
 repo = streamlit.secrets["github"]["repo"]
@@ -19,6 +23,13 @@ headers = {
     "Authorization": f"token {token}",
     "Accept": "application/vnd.github.v3+json"
 }
+
+
+
+
+## API CODE 
+UsernameAndPassword = "Username and Password.csv"
+df = pandas.read_csv(UsernameAndPassword, usecols= ["A, B"], header = 4)
 
 @streamlit.cache_data(ttl=60)
 def load_original_data():
@@ -76,9 +87,7 @@ streamlit.dataframe(df)
 
 
 
-
-
-## PAGE OUTLINE
+## FRONT PAGE DESIGN
 streamlit.markdown(
     """
     <style>
@@ -93,31 +102,26 @@ streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Compan
 streamlit.header("<u>User Portal - Access to Biometric Analysis, Industry Outreach, and Publications</u>")
 
 
-## DATA
-UsernameAndPassword = "Username and Password.csv"
-df_loginpage = pandas.read_csv(UsernameAndPassword, usecols= ["A, B"], header = 4)
 
+
+## LOGIN USER INTERFACE
 Activity = "Activity.csv"
-df = pandas.read_csv(Activity, usecols='A:H', header = 4)
+df_activity = pandas.read_csv(Activity, usecols='A:H', header = 4)
 df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
 df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
 df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
 df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
 
-Journal = "Journal.csv"
-df_journal = pandas.read_csv(Journal, header= 7)
 
-
-## LOGIN USER INTERFACE
 def loginprocess (username, password):
-    userexists = ((df_loginpage["USER ID"] == username) & (df_loginpage["PASSWORD"] == password)).any()
+    userexists = ((df["USER ID"] == username) & (df["PASSWORD"] == password)).any()
     if not userexists:
         return "Authentication failed"
 
     
     # Get indices or rows from the filtered reference DataFrame
-    df_productselect = streamlit.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
-    df_forproduct = df[df["Product"].isin(df_productselect)]
+    df_productselect = streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
+    df_forproduct = df_activity[df_activity["Product"].isin(df_productselect)]
     filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == username].index
     
     # Filter other data tables using the filtered indices or rows
@@ -138,7 +142,13 @@ def local_css(file_name):
         with open(file_name) as f:
            streamlit.markdown(f"<style>{f.read()}</styles>", unsafe_allow_html=True)
 
+
+
+
 #Page Navigator
+Journal = "Journal.csv"
+df_journal = pandas.read_csv(Journal, header= 7)
+
 pages = ["Analysis", "Consumption Consultation", "Journal"]
 page = streamlit.sidebar.selectbox("Choose a page", pages)
 if page == "Analysis":
@@ -149,7 +159,7 @@ if page == "Analysis":
         streamlit.caption("Usernames and Passwords are case-sensitive")
         if submit_button:
             loginprocess(username, password)
-            #streamlit.multiselect("Select the product:",options = df["Product"].unique(),default = df["Product"].unique())
+            #streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
 elif page == "Consumption Consultation":
     streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
     contact_form = """
@@ -166,6 +176,9 @@ elif page == "Consumption Consultation":
     local_css("style.css.txt")
 elif page == "Journal":
     streamlit.dataframe(df_journal, width = 1000, hide_index= True)
+
+
+
 
 
 DPEimage = Image.open("assets/DylanPeterEllislogo.jfif")
