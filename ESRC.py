@@ -11,11 +11,11 @@ import json
 
 
 ## API RESOURCES
-token = streamlit.secrets["github"]["token"]
-username = streamlit.secrets["github"]["username"]
-repo = streamlit.secrets["github"]["repo"]
-branch = streamlit.secrets["github"].get("branch", "master")
-file_path = streamlit.secrets["github"]["file_path"]
+token = streamlit.secrets[github][token]
+username = streamlit.secrets[github][username]
+repo = streamlit.secrets[github][repo]
+branch = streamlit.secrets[github].get(branch, master)
+file_path = streamlit.secrets[github][file_path]
 
 api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
 
