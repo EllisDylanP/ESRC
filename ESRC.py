@@ -9,12 +9,15 @@ import json
 
 
 
-api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
 
-headers = {
-    "Authorization": f"token {token}",
-    "Accept": "application/vnd.github.v3+json"
-}
+## API RULES
+
+## api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
+
+##headers = {
+ ##   "Authorization": f"token {token}",
+ ##   "Accept": "application/vnd.github.v3+json"
+##}
 
 
 
