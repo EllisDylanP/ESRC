@@ -11,13 +11,19 @@ import json
 
 
 ## API RULES
+token = streamlit.secrets["github"]["token"]
+username = streamlit.secrets["github"]["username"]
+repo = streamlit.secrets["github"]["repo"]
+branch = streamlit.secrets["github"].get(branch, main)
+file_path = streamlit.secrets["github"]["file_path"]
+file_path1 = streamlit.secrets["github"]["file_path1"]
 
-## api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
+api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
 
-##headers = {
- ##   "Authorization": f"token {token}",
- ##   "Accept": "application/vnd.github.v3+json"
-##}
+headers = {
+   "Authorization": f"token {token}",
+   "Accept": "application/vnd.github.v3+json"
+}
 
 
 
