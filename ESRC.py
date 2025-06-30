@@ -26,7 +26,7 @@ streamlit.markdown(
     unsafe_allow_html=True)
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
-streamlit.header("<u>User Portal - Access to Biometric Analysis, Industry Outreach, and Publications</u>")
+streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach, and Publications")
 
 
 
@@ -75,7 +75,7 @@ def local_css(file_name):
 
 #Page Navigator
 Journal = "Journal.csv"
-df_journal = pandas.read_csv(Journal, header= 7)
+##df_journal = pandas.read_csv(Journal, header= 7)
 
 pages = ["Analysis", "Consumption Consultation", "Journal"]
 page = streamlit.sidebar.selectbox("Choose a page", pages)
@@ -104,7 +104,13 @@ elif page == "Consumption Consultation":
     streamlit.markdown(contact_form, unsafe_allow_html = True)
     local_css("style.css.txt")
 elif page == "Journal":
-    streamlit.dataframe(df_journal, width = 1000, hide_index= True)
+    ##streamlit.dataframe(df_journal, width = 1000, hide_index= True)
+    # Create a sample DataFrame
+    data = pandas.DataFrame(
+        columns=["Author", "Title", "Date"]
+    )
+    # Display the DataFrame as a static table
+    streamlit.table(data)
 
 
 
