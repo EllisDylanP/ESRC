@@ -9,82 +9,8 @@ import json
 
 
 
-
-## API RULES
-token = streamlit.secrets["github"]["token"]
-username = streamlit.secrets["github"]["username"]https://github.com/EllisDylanP/ESRC/blob/master/ESRC.py
-repo = streamlit.secrets["github"]["repo"]
-branch = streamlit.secrets["github"].get(master)
-file_path = streamlit.secrets["github"]["file_path"]
-file_path1 = streamlit.secrets["github"]["file_path1"]
-
-api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
-
-headers = {
-   "Authorization": f"token {token}",
-   "Accept": "application/vnd.github.v3+json"
-}
-
-
-
-
 ## API CODE 
 UsernameAndPassword = "Username and Password.csv"
-df = pandas.read_csv("Username and Password.csv", usecols= ["username", "password"])
-               ##      ,header =4)
-
-@streamlit.cache_data(ttl=60)
-def load_original_data():
-    url = 'https://raw.githubusercontent.com/[username]/[repo]/[branch]/[file].csv'
-    response = requests.get(url)
-    if response.status_code == 200:
-        return pd.read_csv(StringIO(response.text))
-    else:
-        streamlit.error("Failed to load data from GitHub.")
-        return None
-
-def save_csv_to_github(df, sha):
-    csv_buffer = io.StringIO()
-    df.to_csv(csv_buffer, index=False)
-    encoded_content = base64.b64encode(csv_buffer.getvalue().encode()).decode()
-    data = {
-        "message": "Update CSV from Streamlit form",
-        "content": encoded_content,
-        "sha": sha,
-        "branch": branch,
-    }
-
-    response = requests.put(api_url, headers=headers, data=json.dumps(data))
-    return response
-
-df, sha = load_original_data()
-
-streamlit.title("Update CSV on GitHub via Streamlit Form")
-
-Registration = streamlit.form("Registration", clear_on_submit=True)
-username = Registration.text_input("Name")
-password = Registration.text_input("Email")
-phonenumber = Registration.number_input("Phone Number")
-email = Registration.text_input("Email")
-sme = Registration.checkbox("SME")
-retailer = Registration.checkbox("Retailer")
-date = Registration.date()
-registered = Registration.form_submit_button("Registered")
-
-if Registered:
-    new_row = {"username": username, "password": password, "phonenumber": int(phonenumber), "email": email, "sme": sme, "retailer": retailer, "date": date}
-    df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
-    response = save_csv_to_github(df, sha)
-    if response.status_code in [200, 201]:
-        streamlit.success("Data added and CSV updated successfully.")
-    else:
-        streamlit.error("Failed to update CSV on GitHub.")
-        streamlit.json(response.json())
-
-streamlit.subheader("Current CSV Data")
-streamlit.dataframe(df)
-
-
 
 
 
@@ -106,12 +32,13 @@ streamlit.header("<u>User Portal - Access to Biometric Analysis, Industry Outrea
 
 
 ## LOGIN USER INTERFACE
+##df = pandas.read_csv("Username and Password.csv", usecols=['A,B'],header =4)
 Activity = "Activity.csv"
-df_activity = pandas.read_csv(Activity, usecols='A:H', header = 4)
-df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
-df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
-df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
-df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
+##df_activity = pandas.read_csv(Activity, usecols=['A:H'], header = 4)
+##df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
+##df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
+##df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
+##df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
 
 
 def loginprocess (username, password):
@@ -158,6 +85,7 @@ if page == "Analysis":
         password = streamlit.text_input(label = "Password", type = "password")
         submit_button = streamlit.form_submit_button(label="Login")
         streamlit.caption("Usernames and Passwords are case-sensitive")
+      streamlit.caption("text me at 7039014281 to have an update with your health metrics at each transaction with your own pulse oximeter to have freedom to be with any cannabis outlet you choose")
         if submit_button:
             loginprocess(username, password)
             #streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
