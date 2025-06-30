@@ -12,9 +12,9 @@ import json
 
 ## API RULES
 token = streamlit.secrets["github"]["token"]
-username = streamlit.secrets["github"]["username"]
+username = streamlit.secrets["github"]["username"]https://github.com/EllisDylanP/ESRC/blob/master/ESRC.py
 repo = streamlit.secrets["github"]["repo"]
-branch = streamlit.secrets["github"].get(branch, main)
+branch = streamlit.secrets["github"].get(master)
 file_path = streamlit.secrets["github"]["file_path"]
 file_path1 = streamlit.secrets["github"]["file_path1"]
 
