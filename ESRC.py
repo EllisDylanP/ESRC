@@ -6,7 +6,6 @@ import requests
 import base64
 import io
 import json
-import pdfplumber
 
 
 
