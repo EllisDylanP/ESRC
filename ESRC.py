@@ -6,6 +6,7 @@ import requests
 import base64
 import io
 import json
+import pdfplumber
 
 
 
@@ -106,6 +107,14 @@ elif page == "Consumption Consultation":
 elif page == "Journal":
     ##streamlit.dataframe(df_journal, width = 1000, hide_index= True)
     # Create a sample DataFrame
+    # Upload the PDF file
+    uploaded_file = streamlit.file_uploader("Cannabinoids tied to mineral necessities of daily suggested value", type="pdf")
+
+    if uploaded_file is not None:
+        with pdfplumber.open(uploaded_file) as pdf:
+            # Extract text from all pages
+            for page in pdf.pages:
+                streamlit.popover(page.extract_text())
     data = pandas.DataFrame(
         columns=["Author", "Title", "Date"]
     )
