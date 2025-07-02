@@ -110,7 +110,7 @@ elif page == "Journal":
     uploaded_file = streamlit.file_uploader("Cannabinoids tied to mineral necessities of daily suggested value", type="pdf")
 
     if uploaded_file is not None:
-        with pdfplumber.open(uploaded_file) as pdf:
+        with streamlit.open(uploaded_file) as pdf:
             # Extract text from all pages
             for page in pdf.pages:
                 streamlit.popover(page.extract_text())
