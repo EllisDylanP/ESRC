@@ -88,7 +88,7 @@ if page == "Analysis":
         if submit_button:
             loginprocess(username, password)
             #streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
-    streamlit.caption("Text me at 7039014281 to register and/or have an update with your health metrics at each transaction with your own pulse oximeter to have freedom to be with any cannabis outlet you choose")
+    streamlit.caption("Text me at 7039014281 to register and/or update your health metrics with a transaction attached to data from your own pulse oximeter moving freedom to be with any cannabis outlet you choose now")
 elif page == "Consumption Consultation":
     streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
     contact_form = """
