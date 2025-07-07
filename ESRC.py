@@ -12,7 +12,7 @@ import json
 token = streamlit.secrets["github"]["token"]
 username = streamlit.secrets["github"]["username"]
 repo = streamlit.secrets["github"]["repo"]
-branch = streamlit.secrets["github"].get(master)
+branch = streamlit.secrets["github"].get(branch, master)
 file_path = streamlit.secrets["github"]["file_path"]
 file_path1 = streamlit.secrets["github"]["file_path1"]
 
