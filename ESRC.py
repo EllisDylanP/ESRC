@@ -14,7 +14,7 @@ username = streamlit.secrets["github"]["username"]
 repo = streamlit.secrets["github"]["repo"]
 ##branch = streamlit.secrets["github"].get("branch", "main")
 file_path = streamlit.secrets["github"]["file_path"]
-file_path1 = streamlit.secrets["github"]["file_path1"]
+file_path2 = streamlit.secrets["github"]["file_path1"]
 
 api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
 
