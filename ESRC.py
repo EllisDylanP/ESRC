@@ -9,53 +9,53 @@ import json
 
 
 ## API RULES
-token = streamlit.secrets["github"]["token"]
-username = streamlit.secrets["github"]["username"]
-repo = streamlit.secrets["github"]["repo"]
-branch = streamlit.secrets["github"].get("branch", "master")
-file_path = streamlit.secrets["github"]["file_path"]
-file_path1 = streamlit.secrets["github"]["file_path1"]
+##token = streamlit.secrets["github"]["token"]
+##username = streamlit.secrets["github"]["username"]
+##repo = streamlit.secrets["github"]["repo"]
+##branch = streamlit.secrets["github"].get("branch", "master")
+##file_path = streamlit.secrets["github"]["file_path"]
+##file_path1 = streamlit.secrets["github"]["file_path1"]
 
-api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
+##api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
 
-headers = {
-   "Authorization": f"token {token}",
-   "Accept": "application/vnd.github.v3+json"
-}
+##headers = {
+##   "Authorization": f"token {token}",
+##   "Accept": "application/vnd.github.v3+json"
+##}
 
 
 
 
 ## API CODE 
 UsernameAndPassword = "Username and Password.csv"
-df = pandas.read_csv("Username and Password.csv", usecols= ["username", "password"])
+##df = pandas.read_csv("Username and Password.csv", usecols= ["username", "password"])
                ##      ,header =4)
 
-@streamlit.cache_data(ttl=60)
-def load_original_data():
-    url = 'https://raw.githubusercontent.com/[username]/[repo]/[branch]/[file].csv'
-    response = requests.get(url)
-    if response.status_code == 200:
-        return pd.read_csv(StringIO(response.text))
-    else:
-        streamlit.error("Failed to load data from GitHub.")
-        return None
+##@streamlit.cache_data(ttl=60)
+##def load_original_data():
+##    url = 'https://raw.githubusercontent.com/[username]/[repo]/[branch]/[file].csv'
+##    response = requests.get(url)
+##    if response.status_code == 200:
+##        return pd.read_csv(StringIO(response.text))
+##    else:
+##        streamlit.error("Failed to load data from GitHub.")
+##        return None
 
-def save_csv_to_github(df, sha):
-    csv_buffer = io.StringIO()
-    df.to_csv(csv_buffer, index=False)
-    encoded_content = base64.b64encode(csv_buffer.getvalue().encode()).decode()
-    data = {
-        "message": "Update CSV from Streamlit form",
-        "content": encoded_content,
-        "sha": sha,
-        "branch": branch,
-    }
+##def save_csv_to_github(df, sha):
+##    csv_buffer = io.StringIO()
+##    df.to_csv(csv_buffer, index=False)
+##    encoded_content = base64.b64encode(csv_buffer.getvalue().encode()).decode()
+##    data = {
+##        "message": "Update CSV from Streamlit form",
+##        "content": encoded_content,
+##        "sha": sha,
+##        "branch": branch,
+##    }
 
-    response = requests.put(api_url, headers=headers, data=json.dumps(data))
-    return response
+##    response = requests.put(api_url, headers=headers, data=json.dumps(data))
+##    return response
 
-df, sha = load_original_data()
+##df, sha = load_original_data()
 
 
 
