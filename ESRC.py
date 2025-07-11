@@ -28,7 +28,7 @@ headers = {
 
 ## API CODE 
 UsernameAndPassword = "Username and Password.csv"
-df = pandas.read_csv("Username and Password.csv", usecols= ["username","password"],header =4)
+##df = pandas.read_csv("Username and Password.csv", usecols= ["username","password"],header =4)
 
 @streamlit.cache_data(ttl=60)
 def load_original_data():
@@ -77,13 +77,13 @@ streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach,
 
 
 ## LOGIN USER INTERFACE
-df = pandas.read_csv("Username and Password.csv", usecols=['A,B'],header =4)
+##df = pandas.read_csv("Username and Password.csv", usecols=['A,B'],header =4)
 Activity = "Activity.csv"
-df_activity = pandas.read_csv(Activity, usecols=['A:H'], header = 4)
-df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
-df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
-df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
-df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
+##df_activity = pandas.read_csv(Activity, usecols=['A:H'], header = 4)
+##df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
+##df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
+##df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
+##df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
 
 
 def loginprocess (username, password):
