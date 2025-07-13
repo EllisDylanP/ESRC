@@ -10,25 +10,25 @@ import json
 with streamlit.form("registration"):
    username = streamlit.text_input(label ="NewUsername")
    password = streamlit.text_input(label = "NewPassword", type = "password")
-   phonenumber = streamlit.num_imput(label = "PhoneNumber, type = "int")
+   ##phonenumber = streamlit.num_imput(label = "PhoneNumber, type = "int")
    email = streamlit.text_input(label = "Email")
    sme = streamlit.option(label = "Subject Matter Expert")
    retailer = streamlit.option(label = Retailer")
-   date = 
-   userid = 
+   ##date = 
+   ##userid = 
    submit_button = streamlit.form_submit_button(label="Register")
    streamlit.caption("Usernames and Passwords are case-sensitive")
-   if submit_button:
-      registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
+   ##if submit_button:
+      ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
 
-with streamlit.form("activity"):
-   username = df["USER ID"]
-   date = streamlit.date
+##with streamlit.form("activity"):
+   ##username = df["USER ID"]
+   ##date = streamlit.date
    
-   submit_button = streamlit.form_submit_button(label="Register")
-   streamlit.caption("Usernames and Passwords are case-sensitive")
-   if submit_button:
-      registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
+   ##submit_button = streamlit.form_submit_button(label="Register")
+   ##streamlit.caption("Usernames and Passwords are case-sensitive")
+   ##if submit_button:
+      ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
    
 ## API RULES
 token = streamlit.secrets["github"]["token"]
