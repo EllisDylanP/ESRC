@@ -72,8 +72,8 @@ def save_csv_to_github(df, sha):
        "branch": branch,
     }
 
-   if sha:
-       data["sha"] = sha
+   ##if sha:
+      ## data["sha"] = sha
 
     response = requests.put(api_url, headers=headers, data=json.dumps(data))
     return response
