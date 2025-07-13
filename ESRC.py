@@ -13,7 +13,7 @@ with streamlit.form("registration"):
    ##phonenumber = streamlit.num_imput(label = "PhoneNumber, type = "int")
    email = streamlit.text_input(label = "Email")
    sme = streamlit.option(label = "Subject Matter Expert")
-   retailer = streamlit.option(label = Retailer")
+   retailer = streamlit.option(label = "Retailer")
    ##date = 
    ##userid = 
    submit_button = streamlit.form_submit_button(label="Register")
