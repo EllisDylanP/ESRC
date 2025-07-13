@@ -7,7 +7,29 @@ import base64
 import io
 import json
 
+with streamlit.form("registration"):
+   username = streamlit.text_input(label ="NewUsername")
+   password = streamlit.text_input(label = "NewPassword", type = "password")
+   phonenumber = streamlit.num_imput(label = "PhoneNumber, type = "int")
+   email = streamlit.text_input(label = "Email")
+   sme = streamlit.option(label = "Subject Matter Expert")
+   retailer = streamlit.option(label = Retailer")
+   date = 
+   userid = 
+   submit_button = streamlit.form_submit_button(label="Register")
+   streamlit.caption("Usernames and Passwords are case-sensitive")
+   if submit_button:
+      registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
 
+with streamlit.form("activity"):
+   username = df["USER ID"]
+   date = streamlit.date
+   
+   submit_button = streamlit.form_submit_button(label="Register")
+   streamlit.caption("Usernames and Passwords are case-sensitive")
+   if submit_button:
+      registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
+   
 ## API RULES
 token = streamlit.secrets["github"]["token"]
 username = streamlit.secrets["github"]["username"]
@@ -45,17 +67,26 @@ def save_csv_to_github(df, sha):
     df.to_csv(csv_buffer, index=False)
     encoded_content = base64.b64encode(csv_buffer.getvalue().encode()).decode()
     data = {
-        "message": "Update CSV from Streamlit form",
-        "content": encoded_content,
-        "sha": sha,
-        "branch": branch,
+       "message": "Updated registration via submission",
+       "content": encoded_content,
+       "branch": branch,
     }
+
+   if sha:
+      data["sha"] = sha
 
     response = requests.put(api_url, headers=headers, data=json.dumps(data))
     return response
 
-df, sha = load_original_data()
-
+##df, sha = load_original_data()
+response = save_csv_to_github(
+    df=df,
+    sha=sha,
+    repo=repo,
+    path=file_path,
+    branch=branch,
+    token=token
+)
 
 
 
@@ -73,7 +104,18 @@ streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Compan
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
 streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach, and Publications")
 
-
+activity = pandas.Dataframe({
+"Username" : ["dylan", "samantha"],
+"Date" : ["01/10/2025", "02/10/2025"],
+Product : ["flower", "beverage"],
+Quantity : ["10", "2.5"],
+Price : ["100", "25"],
+Heart Rate : ["45" , "60"],
+Oxygen Saturation : ["99" , "98"],
+Perfusion Index : ["12" , "10"]
+})
+edited_data = st.data_editor(data)
+st.write(edited_data)
 
 
 ## LOGIN USER INTERFACE
