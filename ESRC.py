@@ -54,8 +54,8 @@ UsernameAndPassword = "Username and Password.csv"
 
 @streamlit.cache_data(ttl=60)
 def load_original_data():
-    url = 'https://raw.githubusercontent.com/[username]/[repo]/[branch]/[file].csv'
-    response = requests.get(url)
+    ##url = 'https://raw.githubusercontent.com/[username]/[repo]/[branch]/[file].csv'
+    response = requests.get(api_url)
     if response.status_code == 200:
         return pd.read_csv(StringIO(response.text))
     else:
