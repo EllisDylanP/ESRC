@@ -10,7 +10,7 @@ import json
 with streamlit.form("registration"):
    username = streamlit.text_input(label ="NewUsername")
    password = streamlit.text_input(label = "NewPassword", type = "password")
-   ##phonenumber = streamlit.num_imput(label = "PhoneNumber, type = "int")
+   phonenumber = streamlit.text_input(label = "PhoneNumber")
    email = streamlit.text_input(label = "Email")
    sme = streamlit.option(label = "Subject Matter Expert")
    retailer = streamlit.option(label = "Retailer")
