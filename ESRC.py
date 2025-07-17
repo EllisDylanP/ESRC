@@ -12,8 +12,8 @@ with streamlit.form("registration"):
    password = streamlit.text_input(label = "NewPassword", type = "password")
    phonenumber = streamlit.text_input(label = "PhoneNumber")
    email = streamlit.text_input(label = "Email")
-   sme = streamlit.selectbox(label = "Subject Matter Expert")
-   retailer = streamlit.selectbox(label = "Retailer")
+   sme = streamlit.select(label = "Subject Matter Expert")
+   retailer = streamlit.select(label = "Retailer")
    date = streamlit.dateinput("today")
    ##userid = 
    submit_button = streamlit.form_submit_button(label="Register")
