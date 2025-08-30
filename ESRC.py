@@ -82,12 +82,12 @@ def save_csv_to_github(df, sha):
 
 ##df, sha = load_original_data()
 response = save_csv_to_github(
-    df=df,
-    sha=sha,
-    repo=repo,
-    path=file_path,
-    branch=branch,
-    token=token
+    ##df=df,
+    ##sha=sha,
+    ##repo=repo,
+    ##path=file_path,
+    ##branch=branch,
+    ##token=token
 )
 
 
