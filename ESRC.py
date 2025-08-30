@@ -106,19 +106,6 @@ streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Compan
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
 streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach, and Publications")
 
-activity = pandas.Dataframe({
-"Username" : ["dylan", "samantha"],
-"Date" : ["01/10/2025", "02/10/2025"],
-"Product" : ["flower", "beverage"],
-"Quantity" : ["10", "2.5"],
-"Price" : ["100", "25"],
-"Heart Rate" : ["45" , "60"],
-"Oxygen Saturation" : ["99" , "98"],
-"Perfusion Index" : ["12" , "10"]
-})
-edited_data = st.data_editor(data)
-st.write(edited_data)
-
 
 ## LOGIN USER INTERFACE
 ##df = pandas.read_csv("Username and Password.csv", usecols=['A,B'],header =4)
