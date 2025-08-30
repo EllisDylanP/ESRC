@@ -18,7 +18,7 @@ with streamlit.form("registration"):
    ##streamlit.write(retailer)
    ##date = streamlit.dateinput("today")
    ##userid = 
-   ##submit_button = streamlit.form_submit_button(label="Register")
+   submit_button = streamlit.form_submit_button(label="Register")
    ##streamlit.caption("Usernames and Passwords are case-sensitive")
    ##if submit_button:
       ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
@@ -81,14 +81,14 @@ def save_csv_to_github(df, sha):
     return response
 
 ##df, sha = load_original_data()
-response = save_csv_to_github(
+##response = save_csv_to_github(
     ##df=df,
     ##sha=sha,
     ##repo=repo,
     ##path=file_path,
     ##branch=branch,
     ##token=token
-)
+##)
 
 
 
