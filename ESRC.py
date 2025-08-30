@@ -12,7 +12,7 @@ with streamlit.form("registration"):
    password = streamlit.text_input(label = "NewPassword", type = "password")
    phonenumber = streamlit.text_input(label = "PhoneNumber")
    email = streamlit.text_input(label = "Email")
-   sme = streamlit.selectbox(label = "Subject Matter Expert")
+   ##sme = streamlit.selectbox(label = "Subject Matter Expert")
    streamlit.write(sme)
    retailer = streamlit.selectbox(label = "Retailer")
    streamlit.write(retailer)
