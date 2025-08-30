@@ -204,7 +204,8 @@ elif page == "Journal":
             for page in pdf.pages:
                 streamlit.popover(page.extract_text())
     data = pandas.DataFrame(
-        columns=["Author", "Title", "Date"]
+        columns=["Author", "Title", "Date"], 
+       rows=[("Dylan", streamlit.pdf("Cannabinoids tied to mineral necessities of daily suggested value.pdf"), "08/30/2025")]
     )
     # Display the DataFrame as a static table
     streamlit.table(data)
