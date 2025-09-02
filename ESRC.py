@@ -7,21 +7,6 @@ import base64
 import io
 import json
 
-with streamlit.form("registration"):
-   username = streamlit.text_input(label ="NewUsername")
-   password = streamlit.text_input(label = "NewPassword", type = "password")
-   phonenumber = streamlit.text_input(label = "PhoneNumber")
-   email = streamlit.text_input(label = "Email")
-   ##sme = streamlit.selectbox(label = "Subject Matter Expert")
-   ##streamlit.write(sme)
-   ##retailer = streamlit.selectbox(label = "Retailer")
-   ##streamlit.write(retailer)
-   ##date = streamlit.dateinput("today")
-   ##userid = 
-   submit_button = streamlit.form_submit_button(label="Register")
-   ##streamlit.caption("Usernames and Passwords are case-sensitive")
-   ##if submit_button:
-      ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
 
 ##with streamlit.form("activity"):
    ##username = df["USER ID"]
@@ -156,6 +141,21 @@ Journal = "Journal.csv"
 pages = ["Analysis", "Consumption Consultation", "Journal"]
 page = streamlit.sidebar.selectbox("Choose a page", pages)
 if page == "Analysis":
+    with streamlit.form("registration"):
+    username = streamlit.text_input(label ="NewUsername")
+    password = streamlit.text_input(label = "NewPassword", type = "password")
+    phonenumber = streamlit.text_input(label = "PhoneNumber")
+    email = streamlit.text_input(label = "Email")
+    ##sme = streamlit.selectbox(label = "Subject Matter Expert")
+    ##streamlit.write(sme)
+    ##retailer = streamlit.selectbox(label = "Retailer")
+    ##streamlit.write(retailer)
+    ##date = streamlit.dateinput("today")
+    ##userid = 
+    submit_button = streamlit.form_submit_button(label="Register")
+    ##streamlit.caption("Usernames and Passwords are case-sensitive")
+    ##if submit_button:
+      ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
     with streamlit.form("Login"):
         username = streamlit.text_input(label ="Username")
         password = streamlit.text_input(label = "Password", type = "password")
@@ -192,7 +192,7 @@ elif page == "Journal":
                 streamlit.popover(page.extract_text())
     data = pandas.DataFrame(
         columns=["Author", "Title", "Date"], 
-       rows=[("Dylan", streamlit.pdf("Cannabinoids tied to mineral necessities of daily suggested value.pdf"), "08/30/2025")]
+         ##rows=[("Dylan", "Cannabinoids tied to mineral necessities of daily suggested value.pdf", "08/30/2025")]
     )
     # Display the DataFrame as a static table
     streamlit.table(data)
