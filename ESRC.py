@@ -141,18 +141,28 @@ Journal = "Journal.csv"
 pages = ["Analysis", "Consumption Consultation", "Journal"]
 page = streamlit.sidebar.selectbox("Choose a page", pages)
 if page == "Analysis":
+   thumbnail_url = "https://oxiline.shop/app/uploads/2024/09/pulse-9s-hero-web-1.png"
+   iframe_url = "https://oxiline.shop/product/pulse-9s-pro/" 
+   streamlit.markdown(
+       f"""
+       <a href="{iframe_url}" target="_blank">
+           <img src="{thumbnail_url}" alt="Thumbnail" style="width:100%; max-width:300px; border-radius:10px;"/>
+       </a>
+       """,
+       unsafe_allow_html=True,)
+
     with streamlit.form("registration"):
-    username = streamlit.text_input(label ="NewUsername")
-    password = streamlit.text_input(label = "NewPassword", type = "password")
-    phonenumber = streamlit.text_input(label = "PhoneNumber")
-    email = streamlit.text_input(label = "Email")
+       username = streamlit.text_input(label ="NewUsername")
+       password = streamlit.text_input(label = "NewPassword", type = "password")
+       phonenumber = streamlit.text_input(label = "PhoneNumber")
+       email = streamlit.text_input(label = "Email")
     ##sme = streamlit.selectbox(label = "Subject Matter Expert")
     ##streamlit.write(sme)
     ##retailer = streamlit.selectbox(label = "Retailer")
     ##streamlit.write(retailer)
     ##date = streamlit.dateinput("today")
     ##userid = 
-    submit_button = streamlit.form_submit_button(label="Register")
+       submit_button = streamlit.form_submit_button(label="Register")
     ##streamlit.caption("Usernames and Passwords are case-sensitive")
     ##if submit_button:
       ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
@@ -165,6 +175,7 @@ if page == "Analysis":
             loginprocess(username, password)
             #streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
     streamlit.caption("Text me at 7039014281 to register and/or update your health metrics with a transaction attached to data from your own pulse oximeter moving freedom to be with any cannabis outlet you choose now. This message was written and approved by Dylan Peter Ellis.")
+
 elif page == "Consumption Consultation":
     streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
     contact_form = """
@@ -179,6 +190,7 @@ elif page == "Consumption Consultation":
     """
     streamlit.markdown(contact_form, unsafe_allow_html = True)
     local_css("style.css.txt")
+
 elif page == "Journal":
     ##streamlit.dataframe(df_journal, width = 1000, hide_index= True)
     # Create a sample DataFrame
