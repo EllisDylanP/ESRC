@@ -166,15 +166,15 @@ if page == "Analysis":
     ##streamlit.caption("Usernames and Passwords are case-sensitive")
     ##if submit_button:
       ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
-    with streamlit.form("Login"):
-        username = streamlit.text_input(label ="Username")
-        password = streamlit.text_input(label = "Password", type = "password")
-        submit_button = streamlit.form_submit_button(label="Login")
-        streamlit.caption("Usernames and Passwords are case-sensitive")
-        if submit_button:
-            loginprocess(username, password)
-            #streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
-    streamlit.caption("Text me at 7039014281 to register and/or update your health metrics with a transaction attached to data from your own pulse oximeter moving freedom to be with any cannabis outlet you choose now. This message was written and approved by Dylan Peter Ellis.")
+   ## with streamlit.form("Login"):
+     ##   username = streamlit.text_input(label ="Username")
+       ## password = streamlit.text_input(label = "Password", type = "password")
+        ##submit_button = streamlit.form_submit_button(label="Login")
+        ##streamlit.caption("Usernames and Passwords are case-sensitive")
+        ##if submit_button:
+          ##  loginprocess(username, password)
+            ##streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
+  ##  streamlit.caption("Text me at 7039014281 to register and/or update your health metrics with a transaction attached to data from your own pulse oximeter moving freedom to be with any cannabis outlet you choose now. This message was written and approved by Dylan Peter Ellis.")
 
 elif page == "Consumption Consultation":
     streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
