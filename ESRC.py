@@ -7,76 +7,6 @@ import base64
 import io
 import json
 
-
-##with streamlit.form("activity"):
-   ##username = df["USER ID"]
-   ##date = streamlit.date
-   
-   ##submit_button = streamlit.form_submit_button(label="Register")
-   ##streamlit.caption("Usernames and Passwords are case-sensitive")
-   ##if submit_button:
-      ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
-   
-## API RULES
-token = streamlit.secrets["github"]["token"]
-username = streamlit.secrets["github"]["username"]
-repo = streamlit.secrets["github"]["repo"]
-##branch = streamlit.secrets["github"].get("branch", "main")
-file_path = streamlit.secrets["github"]["file_path"]
-file_path2 = streamlit.secrets["github"]["file_path2"]
-
-api_url = f"https://api.github.com/repos/{username}/{repo}/contents/{file_path}"
-
-headers = {
-   "Authorization": f"token {token}",
-   "Accept": "application/vnd.github.v3+json"
-}
-
-
-
-
-## API CODE 
-UsernameAndPassword = "Username and Password.csv"
-##df = pandas.read_csv("Username and Password.csv", usecols= ["username","password"],header =4)
-
-@streamlit.cache_data(ttl=60)
-def load_original_data():
-    ##url = 'https://raw.githubusercontent.com/[username]/[repo]/[branch]/[file].csv'
-    response = requests.get(api_url)
-    if response.status_code == 200:
-        return pd.read_csv(StringIO(response.text))
-    else:
-        streamlit.error("Failed to load data from GitHub.")
-        return None
-
-def save_csv_to_github(df, sha):
-    csv_buffer = io.StringIO()
-    df.to_csv(csv_buffer, index=False)
-    encoded_content = base64.b64encode(csv_buffer.getvalue().encode()).decode()
-    data = {
-       "message": "Updated registration via submission",
-       "content": encoded_content,
-       "branch": branch,
-    }
-
-   ##if sha:
-      ## data["sha"] = sha
-
-    response = requests.put(api_url, headers=headers, data=json.dumps(data))
-    return response
-
-##df, sha = load_original_data()
-##response = save_csv_to_github(
-    ##df=df,
-    ##sha=sha,
-    ##repo=repo,
-    ##path=file_path,
-    ##branch=branch,
-    ##token=token
-##)
-
-
-
 ## FRONT PAGE DESIGN
 streamlit.markdown(
     """
@@ -87,25 +17,41 @@ streamlit.markdown(
     </style>
     """,
     unsafe_allow_html=True)
-streamlit.markdown('<h1 class="title">Finally, The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
+streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
-streamlit.header("User Portal - Access to Biometric Analysis, Industry Outreach, and Publications")
+streamlit.header("User Portal - Access to Endocannabinoid Analysis, Industry Outreach, and Publications")
+
+with streamlit.form("Activity"):
+   streamlit.write("Use the same name as before if you are a return user *cap-sensitive*")
+   name = streamlit.input("Name")
+   heartrate = streamlit.input("Heart Rate")
+   perfusionindex = streamlit.input("Perfusion Index")
+   oxygensaturation = streamlit.input("Oxygen Saturation")
+   flower = streamlit.input("Flower")
+   concentrate = streamlit.input("Concentrate")
+   tincture = streamlit.input("Ticture")
+   beverage = streamlit.input("Beverage")
+   edible = streamlit.input("Edible")
+   vapor = streamlit.input("Vapor")
+   topical = streamlit.input("Topical")
+   submitted = streamlit.form_submit_button("Submit")
+   if submitted:
+      streamlit.append("Activity")
 
 
-## LOGIN USER INTERFACE
-##df = pandas.read_csv("Username and Password.csv", usecols=['A,B'],header =4)
-Activity = "Activity.csv"
-##df_activity = pandas.read_csv(Activity, usecols=['A:H'], header = 4)
-##df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
-##df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
-##df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
-##df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
+with streamlit.form("Name"):
+   name = streamlit.input("Name")
+   submitted - streamlit.form_submit_button("Submit")
+   if submitted:
+      streamlit.read("Activity", name)
 
+## Activity INTERFACE
 
-def loginprocess (username, password):
-    userexists = ((df["USER ID"] == username) & (df["PASSWORD"] == password)).any()
-    if not userexists:
-        return "Authentication failed"
+df_user = pandas.read_csv(Activity, usecols=['A:H'], header = 4)
+df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
+df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
+df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
+df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
 
     
     # Get indices or rows from the filtered reference DataFrame
@@ -136,7 +82,7 @@ def local_css(file_name):
 
 #Page Navigator
 Journal = "Journal.csv"
-##df_journal = pandas.read_csv(Journal, header= 7)
+df_journal = pandas.read_csv(Journal, header= 7)
 
 pages = ["Analysis", "Consumption Consultation", "Journal"]
 page = streamlit.sidebar.selectbox("Choose a page", pages)
@@ -150,32 +96,6 @@ if page == "Analysis":
        </a>
        """,
        unsafe_allow_html=True,)
-
-   ## with streamlit.form("registration"):
-     ##  username = streamlit.text_input(label ="NewUsername")
-      ## password = streamlit.text_input(label = "NewPassword", type = "password")
-       ##phonenumber = streamlit.text_input(label = "PhoneNumber")
-       ##email = streamlit.text_input(label = "Email")
-    ##sme = streamlit.selectbox(label = "Subject Matter Expert")
-    ##streamlit.write(sme)
-    ##retailer = streamlit.selectbox(label = "Retailer")
-    ##streamlit.write(retailer)
-    ##date = streamlit.dateinput("today")
-    ##userid = 
-     ##  submit_button = streamlit.form_submit_button(label="Register")
-    ##streamlit.caption("Usernames and Passwords are case-sensitive")
-    ##if submit_button:
-      ##registrationprocess(username, password, phonenumber, email, sme, retailer, date, userid)
-   ## with streamlit.form("Login"):
-     ##   username = streamlit.text_input(label ="Username")
-       ## password = streamlit.text_input(label = "Password", type = "password")
-        ##submit_button = streamlit.form_submit_button(label="Login")
-        ##streamlit.caption("Usernames and Passwords are case-sensitive")
-        ##if submit_button:
-          ##  loginprocess(username, password)
-            ##streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
-  ##  streamlit.caption("Text me at 7039014281 to register and/or update your health metrics with a transaction attached to data from your own pulse oximeter moving freedom to be with any cannabis outlet you choose now. This message was written and approved by Dylan Peter Ellis.")
-
 elif page == "Consumption Consultation":
     streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
     contact_form = """
@@ -190,7 +110,6 @@ elif page == "Consumption Consultation":
     """
     streamlit.markdown(contact_form, unsafe_allow_html = True)
     local_css("style.css.txt")
-
 elif page == "Journal":
     ##streamlit.dataframe(df_journal, width = 1000, hide_index= True)
     # Create a sample DataFrame
