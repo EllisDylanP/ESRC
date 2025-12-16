@@ -72,6 +72,7 @@ streamlit_graphs = {
     streamlit.plotly_chart(Financialreport)
 }
 return streamlit_graphs
+##unknown
 def local_css(file_name):
         with open(file_name) as f:
            streamlit.markdown(f"<style>{f.read()}</styles>", unsafe_allow_html=True)
