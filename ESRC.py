@@ -53,26 +53,25 @@ df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
 df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
 df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
 
+# Get indices or rows from the filtered reference DataFrame
+df_productselect = streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
+df_forproduct = df_activity[df_activity["Product"].isin(df_productselect)]
+filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == username].index
     
-    # Get indices or rows from the filtered reference DataFrame
-    df_productselect = streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
-    df_forproduct = df_activity[df_activity["Product"].isin(df_productselect)]
-    filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == username].index
-    
-    # Filter other data tables using the filtered indices or rows
-    HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart Rate", title = "Heart Rate Metrics", markers=True)
-    Oxyreport = px.line(df_Oxy.loc[filtered_indices],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics", markers=True)
-    PIreport = px.line(df_PI.loc[filtered_indices],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report", markers=True)
-    Financialreport = px.line(df_financial.loc[filtered_indices], x="Date", y="Price", title = "Financial Report", markers=True)
+# Filter other data tables using the filtered indices or rows
+HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart Rate", title = "Heart Rate Metrics", markers=True)
+Oxyreport = px.line(df_Oxy.loc[filtered_indices],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics", markers=True)
+PIreport = px.line(df_PI.loc[filtered_indices],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report", markers=True)
+Financialreport = px.line(df_financial.loc[filtered_indices], x="Date", y="Price", title = "Financial Report", markers=True)
         
-    # Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
-    streamlit_graphs = {
-            streamlit.plotly_chart(HRreport),
-            streamlit.plotly_chart(Oxyreport),
-            streamlit.plotly_chart(PIreport),
-            streamlit.plotly_chart(Financialreport)
-        }
-    return streamlit_graphs
+# Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
+streamlit_graphs = {
+    streamlit.plotly_chart(HRreport),
+    streamlit.plotly_chart(Oxyreport),
+    streamlit.plotly_chart(PIreport),
+    streamlit.plotly_chart(Financialreport)
+}
+return streamlit_graphs
 def local_css(file_name):
         with open(file_name) as f:
            streamlit.markdown(f"<style>{f.read()}</styles>", unsafe_allow_html=True)
