@@ -25,25 +25,18 @@ streamlit.header("User Portal - Access to Endocannabinoid Analysis, Industry Out
             
 with streamlit.form("ESRCActivity"):
    streamlit.write("Use the same name as before if you are a return user *cap-sensitive*")
-   streamlit.write("Name:")
    Name = streamlit.text_input("Name")
-   streamlit.write("Heart Rate")
    heartrate = streamlit.text_input("Heart Rate")
-   streamlit.write("Perfusion Index:")
    perfusionindex = streamlit.text_input("Perfusion Index")
-   streamlit.write("Oxygen Saturation:")
    oxygensaturation = streamlit.text_input("Oxygen Saturation")
    col1, col2, col3 = streamlit.columns(3)
    with col1:
-       streamlit.write("Product")
        streamlit.selectbox("Product Name",
     ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"]
 )
    with col2:
-       streamlit.write("Amount (grams)")
        Amount = streamlit.text_input("grams")
    with col3:
-       streamlit.write("Price (dollars, USD")
        Price = streamlit.text_input("dollars, USD")
    submitted = streamlit.form_submit_button("Submit")
    if submitted:
