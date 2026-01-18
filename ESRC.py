@@ -19,10 +19,16 @@ streamlit.markdown(
     unsafe_allow_html=True)
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
-streamlit.header("User Portal - Access to Endocannabinoid Analysis, Industry Outreach, and Publications")
+streamlit.header("Biochemical Communication")
 
 
-            
+with streamlit.form("Name"):
+   Name = streamlit.text_input("Name")
+   submitted - streamlit.form_submit_button("Submit")
+   if submitted:
+      streamlit.read("Activity", Name)
+
+
 with streamlit.form("ESRCActivity"):
    streamlit.write("Use the same name as before if you are a return user *cap-sensitive*")
    Name = streamlit.text_input("Name")
@@ -41,12 +47,7 @@ with streamlit.form("ESRCActivity"):
    submitted = streamlit.form_submit_button("Submit")
    if submitted:
        streamlit.append("Activity")
-
-with streamlit.form("Name"):
-   Name = streamlit.text_input("Name")
-   submitted - streamlit.form_submit_button("Submit")
-   if submitted:
-      streamlit.read("Activity", Name)
+       
 
 ## Activity INTERFACE
 
