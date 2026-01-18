@@ -42,7 +42,11 @@ with streamlit.form("ESRCActivity"):
    if submitted:
        streamlit.append("Activity")
 
-
+with streamlit.form("Name"):
+   Name = streamlit.input("Name")
+   submitted - streamlit.form_submit_button("Submit")
+   if submitted:
+      streamlit.read("Activity", Name)
 
 ## Activity INTERFACE
 
