@@ -50,16 +50,16 @@ with streamlit.form("ESRCActivity"):
 
 ## Activity INTERFACE
 
-df_user = pandas.read_csv("Activity", usecols=['A:G'], header = 4)
-df_financial = pandas.read_csv("Activity", usecols=["A, B, G"], header = 4)
-df_HR = pandas.read_csv("Activity", usecols=['A, B, C'], header = 4)
-df_Oxy = pandas.read_csv("Activity", usecols=['A, B, E'], header = 4)
-df_PI = pandas.read_csv("Activity", usecols=['A, B, D'], header = 4)
+df_user = streamlit.dataframe("Activity", usecols=['A:G'], header = 4)
+df_financial = streamlit.dataframe("Activity", usecols=["A, B, G"], header = 4)
+df_HR = streamlit.dataframe("Activity", usecols=['A, B, C'], header = 4)
+df_Oxy = streamlit.dataframe("Activity", usecols=['A, B, E'], header = 4)
+df_PI = streamlit.dataframe("Activity", usecols=['A, B, D'], header = 4)
 
 # Get indices or rows from the filtered reference DataFrame
-df_productselect = streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
-df_forproduct = df_activity[df_activity["Product"].isin(df_productselect)]
-filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == username].index
+df_productselect = streamlit.multiselect("Select the product:",options = df_user["Product"].unique(),default = df_user["Product"].unique())
+df_forproduct = df_user[df_user["Product"].isin(df_productselect)]
+filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == Name].index
     
 # Filter other data tables using the filtered indices or rows
 HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart Rate", title = "Heart Rate Metrics", markers=True)
