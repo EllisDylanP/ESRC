@@ -46,7 +46,7 @@ with streamlit.form("ESRCActivity"):
        streamlit.write("Price (dollars, USD")
        Price = streamlit.text_input("dollars, USD")
    submitted = streamlit.form_submit_button("Submit")
- if submitted:
+   if submitted:
        streamlit.append("Activity")
 
 
