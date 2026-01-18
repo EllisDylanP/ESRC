@@ -31,12 +31,12 @@ with streamlit.form("Name"):
 
 with streamlit.form("ESRCActivity"):
    Name = streamlit.text_input("Name (cap-sensitive)")
-   Heart Rate = streamlit.text_input("Heart Rate")
-   Perfusion Index = streamlit.text_input("Perfusion Index")
-   Oxygen Saturation = streamlit.text_input("Oxygen Saturation")
+   HeartRate = streamlit.text_input("Heart Rate")
+   PerfusionIndex = streamlit.text_input("Perfusion Index")
+   OxygenSaturation = streamlit.text_input("Oxygen Saturation")
    col1, col2, col3 = streamlit.columns(3)
    with col1:
-       streamlit.selectbox("Product",
+       Product = streamlit.selectbox("Product",
     ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"]
 )
    with col2:
@@ -81,13 +81,13 @@ streamlit_graphs = {
 if "Activity" not in streamlit.session_state:
     streamlit.session_state.Activity - pandas.DataFrame(
         {
-            "Name":[0],
+            "Name":[Name],
             "Date": [date.today()],
-            "Heart Rate":[0],
-            "Perfusion Index":[0],
-            "Oxygen Saturation":[0],
-            "Product":[0],
-            "Price":[0],
+            "Heart Rate":[HeartRate],
+            "Perfusion Index":[PerfusionIndex],
+            "Oxygen Saturation":[OxygenSaturation],
+            "Product":[Product],
+            "Price":[Price],
         }
     )
 column_config = {
