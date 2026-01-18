@@ -33,21 +33,21 @@ with streamlit.form("ESRCActivity"):
    perfusionindex = streamlit.text_input("Perfusion Index")
    streamlit.write("Oxygen Saturation:")
    oxygensaturation = streamlit.text_input("Oxygen Saturation")
-    col1, col2, col3 = streamlit.columns(3)
-    with col1:
-        streamlit.write("Product")
-        streamlit.selectbox("Product Name",
+   col1, col2, col3 = streamlit.columns(3)
+   with col1:
+       streamlit.write("Product")
+       streamlit.selectbox("Product Name",
     ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"]
 )
-    with col2:
-        streamlit.write("Amount (grams)")
-        Amount = streamlit.text_input("grams")
-     with col3:
-        streamlit.write("Price (dollars, USD")
-        Price = streamlit.text_input("dollars, USD")
-    submitted = streamlit.form_submit_button("Submit")
+   with col2:
+       streamlit.write("Amount (grams)")
+       Amount = streamlit.text_input("grams")
+   with col3:
+       streamlit.write("Price (dollars, USD")
+       Price = streamlit.text_input("dollars, USD")
+   submitted = streamlit.form_submit_button("Submit")
  if submitted:
-      streamlit.append("Activity")
+       streamlit.append("Activity")
 
 
 
