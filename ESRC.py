@@ -30,11 +30,10 @@ with streamlit.form("Name"):
 
 
 with streamlit.form("ESRCActivity"):
-   streamlit.write("Use the same name as before if you are a return user *cap-sensitive*")
-   Name = streamlit.text_input("Name")
-   heartrate = streamlit.text_input("Heart Rate")
-   perfusionindex = streamlit.text_input("Perfusion Index")
-   oxygensaturation = streamlit.text_input("Oxygen Saturation")
+   Name = streamlit.text_input("Name (cap-sensitive)")
+   Heart Rate = streamlit.text_input("Heart Rate")
+   Perfusion Index = streamlit.text_input("Perfusion Index")
+   Oxygen Saturation = streamlit.text_input("Oxygen Saturation")
    col1, col2, col3 = streamlit.columns(3)
    with col1:
        streamlit.selectbox("Product",
