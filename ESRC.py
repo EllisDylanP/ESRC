@@ -25,40 +25,26 @@ streamlit.header("User Portal - Access to Endocannabinoid Analysis, Industry Out
             
 with streamlit.form("ESRCActivity"):
    streamlit.write("Use the same name as before if you are a return user *cap-sensitive*")
-    streamlit.write("Name:") 
-    name = streamlit.text_input("Name")
-    streamlit.write("Heart Rate")
-    heartrate = streamlit.text_input("Heart Rate")
-    streamlit.write("Perfusion Index:")
-    perfusionindex = streamlit.text_input("Perfusion Index")
-    streamlit.write("Oxygen Saturation:")
-    oxygensaturation = streamlit.text_input("Oxygen Saturation")
+   streamlit.write("Name:")
+   Name = streamlit.text_input("Name")
+   streamlit.write("Heart Rate")
+   heartrate = streamlit.text_input("Heart Rate")
+   streamlit.write("Perfusion Index:")
+   perfusionindex = streamlit.text_input("Perfusion Index")
+   streamlit.write("Oxygen Saturation:")
+   oxygensaturation = streamlit.text_input("Oxygen Saturation")
     col1, col2, col3 = streamlit.columns(3)
     with col1:
         streamlit.write("Product")
-        streamlit.write("Flower")
-        streamlit.write("Concentrate")
-        streamlit.write("Tincture")
-        streamlit.write("Beverage")
-        streamlit.write("Edible")
-        streamlit.write("Vapor")
-        streamlit.write("Topical")
+        streamlit.selectbox("Product Name",
+    ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"]
+)
     with col2:
-        floweramount = streamlit.text_input("Amount")
-        concentrateamount = streamlit.text_input("Amount")
-        tinctureamount = streamlit.text_input("Amount")
-        beverageamount = streamlit.text_input("Amount")
-        edibleamount = streamlit.text_input("Amount")
-        vaporamount = streamlit.text_input("Amount")
-        topicalamount = streamlit.text_input("Amount")
+        streamlit.write("Amount (grams)")
+        Amount = streamlit.text_input("grams")
      with col3:
-        flowerprice = streamlit.text_input("Price")
-        concentrateprice = streamlit.text_input("Price")
-        tinctureprice = streamlit.text_input("Price")
-        beverageprice = streamlit.text_input("Price")
-        edibleprice = streamlit.text_input("Price")
-        vaporprice = streamlit.text_input("Price")
-        topicalprice = streamlit.text_input("Price")
+        streamlit.write("Price (dollars, USD")
+        Price = streamlit.text_input("dollars, USD")
     submitted = streamlit.form_submit_button("Submit")
  if submitted:
       streamlit.append("Activity")
@@ -103,20 +89,8 @@ if "Activity" not in streamlit.session_state:
             "Heart Rate":[0],
             "Perfusion Index":[0],
             "Oxygen Saturation":[0],
-            "floweramount":[0],
-            "flowerprice":[0],
-            "concentrateamount":[0],
-            "concentrateprice":[0],
-            "tinctureamount":[0],
-            "tinctureprice":[0],
-            "beverageamount":[0],
-            "beverageprice":[0],
-            "edibleamount":[0],
-            "edibleprice:[0],
-            "vaporamount":[0],
-            "vaporprice":[0],
-            "Topical":[0],
-            "topicalprice":[0],
+            "Product":[0],
+            "Price":[0],
         }
     )
 column_config = {
