@@ -21,29 +21,49 @@ streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Compan
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
 streamlit.header("User Portal - Access to Endocannabinoid Analysis, Industry Outreach, and Publications")
 
-with streamlit.form("Activity"):
+
+            
+with streamlit.form("ESRCActivity"):
    streamlit.write("Use the same name as before if you are a return user *cap-sensitive*")
-   name = streamlit.input("Name")
-   heartrate = streamlit.input("Heart Rate")
-   perfusionindex = streamlit.input("Perfusion Index")
-   oxygensaturation = streamlit.input("Oxygen Saturation")
-   flower = streamlit.input("Flower")
-   concentrate = streamlit.input("Concentrate")
-   tincture = streamlit.input("Ticture")
-   beverage = streamlit.input("Beverage")
-   edible = streamlit.input("Edible")
-   vapor = streamlit.input("Vapor")
-   topical = streamlit.input("Topical")
-   submitted = streamlit.form_submit_button("Submit")
-   if submitted:
+    streamlit.write("Name:") 
+    name = streamlit.text_input("Name")
+    streamlit.write("Heart Rate")
+    heartrate = streamlit.text_input("Heart Rate")
+    streamlit.write("Perfusion Index:")
+    perfusionindex = streamlit.text_input("Perfusion Index")
+    streamlit.write("Oxygen Saturation:")
+    oxygensaturation = streamlit.text_input("Oxygen Saturation")
+    col1, col2, col3 = streamlit.columns(3)
+    with col1:
+        streamlit.write("Product")
+        streamlit.write("Flower")
+        streamlit.write("Concentrate")
+        streamlit.write("Tincture")
+        streamlit.write("Beverage")
+        streamlit.write("Edible")
+        streamlit.write("Vapor")
+        streamlit.write("Topical")
+    with col2:
+        floweramount = streamlit.text_input("Amount")
+        concentrateamount = streamlit.text_input("Amount")
+        tinctureamount = streamlit.text_input("Amount")
+        beverageamount = streamlit.text_input("Amount")
+        edibleamount = streamlit.text_input("Amount")
+        vaporamount = streamlit.text_input("Amount")
+        topicalamount = streamlit.text_input("Amount")
+     with col3:
+        flowerprice = streamlit.text_input("Price")
+        concentrateprice = streamlit.text_input("Price")
+        tinctureprice = streamlit.text_input("Price")
+        beverageprice = streamlit.text_input("Price")
+        edibleprice = streamlit.text_input("Price")
+        vaporprice = streamlit.text_input("Price")
+        topicalprice = streamlit.text_input("Price")
+    submitted = streamlit.form_submit_button("Submit")
+ if submitted:
       streamlit.append("Activity")
 
 
-with streamlit.form("Name"):
-   name = streamlit.input("Name")
-   submitted - streamlit.form_submit_button("Submit")
-   if submitted:
-      streamlit.read("Activity", name)
 
 ## Activity INTERFACE
 
@@ -71,6 +91,53 @@ streamlit_graphs = {
     streamlit.plotly_chart(PIreport),
     streamlit.plotly_chart(Financialreport)
 }
+
+
+## ACTIVITY
+
+if "Activity" not in streamlit.session_state:
+    streamlit.session_state.Activity - pandas.DataFrame(
+        {
+            "Date": [date.today()],
+            "Name":[0],
+            "Heart Rate":[0],
+            "Perfusion Index":[0],
+            "Oxygen Saturation":[0],
+            "floweramount":[0],
+            "flowerprice":[0],
+            "concentrateamount":[0],
+            "concentrateprice":[0],
+            "tinctureamount":[0],
+            "tinctureprice":[0],
+            "beverageamount":[0],
+            "beverageprice":[0],
+            "edibleamount":[0],
+            "edibleprice:[0],
+            "vaporamount":[0],
+            "vaporprice":[0],
+            "Topical":[0],
+            "topicalprice":[0],
+        }
+    )
+column_config = {
+    "Date": st.column_config.DateColumn(
+        "Date",
+        format="YYYY-MM-DD"
+    )
+}
+for i in range(1, 13):
+    column_config[f"Col_{i}"] = st.column_config.NumberColumn(
+        f"Col {i}",
+        min_value=0,
+        step=1
+    )
+edited_df = st.data_editor(
+    st.session_state.df,
+    num_rows="dynamic",
+    use_container_width=True,
+    column_config=column_config
+)
+st.session_state.df = edited_df
 
 ##unknown
 def local_css(file_name):
