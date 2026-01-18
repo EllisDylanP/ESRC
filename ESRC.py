@@ -24,7 +24,7 @@ streamlit.header("Biochemical Communication")
 
 with streamlit.form("Name"):
    Name = streamlit.text_input("Name")
-   submitted - streamlit.form_submit_button("Submit")
+   submitted = streamlit.form_submit_button("Submit")
    if submitted:
       streamlit.read("Activity", Name)
 
