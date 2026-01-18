@@ -50,11 +50,11 @@ with streamlit.form("ESRCActivity"):
 
 ## Activity INTERFACE
 
-df_user = streamlit.sessionstate.Activity(usecols=['A:G'], header = 4)
-df_financial = streamlit.sessionstate.Activity(usecols=["A, B, G"], header = 4)
-df_HR = streamlit.sessionstate.Activity(usecols=['A, B, C'], header = 4)
-df_Oxy = streamlit.sessionstate.Activity(usecols=['A, B, E'], header = 4)
-df_PI = streamlit.sessionstate.Activity(usecols=['A, B, D'], header = 4)
+df_user = streamlit.session_state.Activity(usecols=['A:G'], header = 4)
+df_financial = streamlit.session_state.Activity(usecols=["A, B, G"], header = 4)
+df_HR = streamlit.session_state.Activity(usecols=['A, B, C'], header = 4)
+df_Oxy = streamlit.session_state.Activity(usecols=['A, B, E'], header = 4)
+df_PI = streamlit.session_state.Activity(usecols=['A, B, D'], header = 4)
 
 # Get indices or rows from the filtered reference DataFrame
 df_productselect = streamlit.multiselect("Select the product:",options = df_user["Product"].unique(),default = df_user["Product"].unique())
