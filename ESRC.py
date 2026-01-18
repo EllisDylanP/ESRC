@@ -26,7 +26,7 @@ with streamlit.form("Name"):
    Name = streamlit.text_input("Name")
    submitted = streamlit.form_submit_button("Submit")
    if submitted:
-      streamlit.read("Activity", Name)
+      streamlit.read(Activity, Name)
 
 
 with streamlit.form("ESRCActivity"):
@@ -45,16 +45,16 @@ with streamlit.form("ESRCActivity"):
        Price = streamlit.text_input("dollars, USD")
    submitted = streamlit.form_submit_button("Submit")
    if submitted:
-       streamlit.append("Activity")
+       streamlit.append(Activity)
        
 
 ## Activity INTERFACE
 
-df_user = streamlit.session_state.Activity(usecols=['A:G'], header = 4)
-df_financial = streamlit.session_state.Activity(usecols=["A, B, G"], header = 4)
-df_HR = streamlit.session_state.Activity(usecols=['A, B, C'], header = 4)
-df_Oxy = streamlit.session_state.Activity(usecols=['A, B, E'], header = 4)
-df_PI = streamlit.session_state.Activity(usecols=['A, B, D'], header = 4)
+df_user = streamlit.session_state.Activity(usecols=['Name:Price'], header = 4)
+df_financial = streamlit.session_state.Activity(usecols=["Name, Date, Price"], header = 4)
+df_HR = streamlit.session_state.Activity(usecols=['Name, Date, Heart Rate'], header = 4)
+df_Oxy = streamlit.session_state.Activity(usecols=['Name, Date, Oxygen Saturation'], header = 4)
+df_PI = streamlit.session_state.Activity(usecols=['Name, Date, Perfusion Index'], header = 4)
 
 # Get indices or rows from the filtered reference DataFrame
 df_productselect = streamlit.multiselect("Select the product:",options = df_user["Product"].unique(),default = df_user["Product"].unique())
@@ -77,38 +77,13 @@ streamlit_graphs = {
 
 
 ## ACTIVITY
+columns = [
+    "Name", "Date", "Heart Rate",
+    "Perfusion Index", "Oxygen Saturation", "Product", "Price"
+]
+Activity = pandas.DataFrame(columns=columns)
+streamlit.dataframe(Activity, use_container_width=True)
 
-if "Activity" not in streamlit.session_state:
-    streamlit.session_state.Activity - pandas.DataFrame(
-        {
-            "Name":[Name],
-            "Date": [date.today()],
-            "Heart Rate":[HeartRate],
-            "Perfusion Index":[PerfusionIndex],
-            "Oxygen Saturation":[OxygenSaturation],
-            "Product":[Product],
-            "Price":[Price],
-        }
-    )
-column_config = {
-    "Date": st.column_config.DateColumn(
-        "Date",
-        format="YYYY-MM-DD"
-    )
-}
-for i in range(1, 13):
-    column_config[f"Col_{i}"] = st.column_config.NumberColumn(
-        f"Col {i}",
-        min_value=0,
-        step=1
-    )
-edited_df = st.data_editor(
-    st.session_state.df,
-    num_rows="dynamic",
-    use_container_width=True,
-    column_config=column_config
-)
-st.session_state.df = edited_df
 
 ##unknown
 def local_css(file_name):
