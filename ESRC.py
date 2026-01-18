@@ -31,7 +31,7 @@ with streamlit.form("ESRCActivity"):
    oxygensaturation = streamlit.text_input("Oxygen Saturation")
    col1, col2, col3 = streamlit.columns(3)
    with col1:
-       streamlit.selectbox("Product Name",
+       streamlit.selectbox("Product",
     ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"]
 )
    with col2:
@@ -46,11 +46,11 @@ with streamlit.form("ESRCActivity"):
 
 ## Activity INTERFACE
 
-df_user = pandas.read_csv(Activity, usecols=['A:H'], header = 4)
-df_financial = pandas.read_csv(Activity, usecols=["A, B, C, E"], header = 4)
-df_HR = pandas.read_csv(Activity, usecols=['A, B, C, F'], header = 4)
-df_Oxy = pandas.read_csv(Activity, usecols=['A, B, C, G'], header = 4)
-df_PI = pandas.read_csv(Activity, usecols=['A, B, C, H'], header = 4)
+df_user = pandas.read_csv("Activity", usecols=['A:G'], header = 4)
+df_financial = pandas.read_csv("Activity", usecols=["A, B, G"], header = 4)
+df_HR = pandas.read_csv("Activity", usecols=['A, B, C'], header = 4)
+df_Oxy = pandas.read_csv("Activity", usecols=['A, B, E'], header = 4)
+df_PI = pandas.read_csv("Activity", usecols=['A, B, D'], header = 4)
 
 # Get indices or rows from the filtered reference DataFrame
 df_productselect = streamlit.multiselect("Select the product:",options = df_activity["Product"].unique(),default = df_activity["Product"].unique())
@@ -77,8 +77,8 @@ streamlit_graphs = {
 if "Activity" not in streamlit.session_state:
     streamlit.session_state.Activity - pandas.DataFrame(
         {
-            "Date": [date.today()],
             "Name":[0],
+            "Date": [date.today()],
             "Heart Rate":[0],
             "Perfusion Index":[0],
             "Oxygen Saturation":[0],
