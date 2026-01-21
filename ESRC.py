@@ -51,15 +51,15 @@ with streamlit.form("ESRCActivity"):
 ## Activity INTERFACE
 
 if "df_user" not in streamlit.session_state:
-    streamlit.session_state.df_user = pandas.Dataframe(Activity['Name:Price'])
+    streamlit.session_state.df_user = pandas.DataFrame(Activity['Name:Price'])
 if "df_financial" not in streamlit.session_state:
-    streamlit.session_state.df_financial = pandas.Dataframe(Activity["Name, Date, Price"])
+    streamlit.session_state.df_financial = pandas.DataFrame(Activity["Name, Date, Price"])
 if "df_HR" not in streamlit.session_state:
-    streamlit.session_state.df_HR = pandas.Dataframe(Activity['Name, Date, Heart Rate'])
+    streamlit.session_state.df_HR = pandas.DataFrame(Activity['Name, Date, Heart Rate'])
 if "df_Oxy" not in streamlit.session_state:
-    streamlit.session_state.df_Oxy = pandas.Dataframe(Activity['Name, Date, Oxygen Saturation'])
+    streamlit.session_state.df_Oxy = pandas.DataFrame(Activity['Name, Date, Oxygen Saturation'])
 if "df_PI" not in streamlit.session_state:
-    streamlit.session_state.df_PI = pandas.Dataframe(Activity['Name, Date, Perfusion Index'])
+    streamlit.session_state.df_PI = pandas.DataFrame(Activity['Name, Date, Perfusion Index'])
 
 # Get indices or rows from the filtered reference DataFrame
 df_productselect = streamlit.multiselect("Select the product:",options = df_user["Product"].unique(),default = df_user["Product"].unique())
