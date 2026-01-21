@@ -63,8 +63,10 @@ if "df_PI" not in streamlit.session_state:
 
 # Get indices or rows from the filtered reference DataFrame
 df_productselect = streamlit.multiselect("Select the product:",options = df_user["Product"].unique(),default = df_user["Product"].unique())
-df_forproduct = df_user[df_user["Product"].isin(df_productselect)]
-filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == Name].index
+if "df_forproduct" not in streamlit.session_state:
+    streamlit.session_state.df_forproduct = df_user[df_user["Product"].isin(df_productselect)]
+if "filtered_indices" not in streamlit.session_state:
+    streamlit.session_state.filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == Name].index
     
 # Filter other data tables using the filtered indices or rows
 HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart Rate", title = "Heart Rate Metrics", markers=True)
