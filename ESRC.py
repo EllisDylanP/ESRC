@@ -20,20 +20,14 @@ streamlit.markdown(
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
 streamlit.header("Biochemical Communication")
+
 ## ACTIVITY
 columns = [
     "Name", "Date", "Heart Rate",
     "Perfusion Index", "Oxygen Saturation", "Product", "Price"
 ]
 Activity = pandas.DataFrame(columns=columns)
-streamlit.dataframe(Activity, use_container_width=True)
-
-with streamlit.form("Name"):
-   Name = streamlit.text_input("Name")
-   submitted = streamlit.form_submit_button("Submit")
-   if submitted:
-      streamlit.read(Activity, Name)
-
+streamlit.dataframe(Activity.tail(1), use_container_width=True)
 
 with streamlit.form("ESRCActivity"):
    Name = streamlit.text_input("Name (cap-sensitive)")
@@ -51,43 +45,46 @@ with streamlit.form("ESRCActivity"):
        Price = streamlit.text_input("dollars, USD")
    submitted = streamlit.form_submit_button("Submit")
    if submitted:
-       streamlit.append(Activity)
-       
+       streamlit.dataframe(Activity) = streamlit.dataframe(Activity) + streamlit.form("ESRCActivity)
+
 
 ## Activity INTERFACE
+with streamlit.form("Name"):
+   Name = streamlit.text_input("Name")
+   if "df_user" not in streamlit.session_state:
+       streamlit.session_state.df_user = pandas.DataFrame([Activity['Name:Price'][Name]])
+   if "df_financial" not in streamlit.session_state:
+       streamlit.session_state.df_financial = pandas.DataFrame([Activity["Name, Date, Price"][Name]])
+   if "df_HR" not in streamlit.session_state:
+       streamlit.session_state.df_HR = pandas.DataFrame([Activity['Name, Date, Heart Rate'][Name]])
+   if "df_Oxy" not in streamlit.session_state:
+       streamlit.session_state.df_Oxy = pandas.DataFrame([Activity['Name, Date, Oxygen Saturation'][Name]])
+   if "df_PI" not in streamlit.session_state:
+       streamlit.session_state.df_PI = pandas.DataFrame([Activity['Name, Date, Perfusion Index'][Name]])
 
-if "df_user" not in streamlit.session_state:
-    streamlit.session_state.df_user = pandas.DataFrame({Activity['Name:Price']})
-if "df_financial" not in streamlit.session_state:
-    streamlit.session_state.df_financial = pandas.DataFrame({Activity["Name, Date, Price"]})
-if "df_HR" not in streamlit.session_state:
-    streamlit.session_state.df_HR = pandas.DataFrame({Activity['Name, Date, Heart Rate']})
-if "df_Oxy" not in streamlit.session_state:
-    streamlit.session_state.df_Oxy = pandas.DataFrame({Activity['Name, Date, Oxygen Saturation']})
-if "df_PI" not in streamlit.session_state:
-    streamlit.session_state.df_PI = pandas.DataFrame({Activity['Name, Date, Perfusion Index']})
-
-# Get indices or rows from the filtered reference DataFrame
-df_productselect = streamlit.multiselect("Select the product:",options = df_user["Product"].unique(),default = df_user["Product"].unique())
-if "df_forproduct" not in streamlit.session_state:
-    streamlit.session_state.df_forproduct = df_user[df_user["Product"].isin(df_productselect)]
-if "filtered_indices" not in streamlit.session_state:
-    streamlit.session_state.filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == Name].index
+   # Get indices or rows from the filtered reference DataFrame
+   df_productselect = streamlit.multiselect("Select the product:",options = df_user["Product"].unique(),default = df_user["Product"].unique())
+   if "df_forproduct" not in streamlit.session_state:
+       streamlit.session_state.df_forproduct = df_user[df_user["Product"].isin(df_productselect)]
+   if "filtered_indices" not in streamlit.session_state:
+       streamlit.session_state.filtered_indices = df_forproduct[df_forproduct.iloc[:, 0] == Name].index
     
-# Filter other data tables using the filtered indices or rows
-HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart Rate", title = "Heart Rate Metrics", markers=True)
-Oxyreport = px.line(df_Oxy.loc[filtered_indices],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics", markers=True)
-PIreport = px.line(df_PI.loc[filtered_indices],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report", markers=True)
-Financialreport = px.line(df_financial.loc[filtered_indices], x="Date", y="Price", title = "Financial Report", markers=True)
+   # Filter other data tables using the filtered indices or rows
+   HRreport = px.line(df_HR.loc[filtered_indices],  x = "Date", y = "Heart Rate", title = "Heart Rate Metrics", markers=True)
+   Oxyreport = px.line(df_Oxy.loc[filtered_indices],   x = "Date", y = "Oxygen Saturation", title = "Oxygen Saturation Metrics", markers=True)
+   PIreport = px.line(df_PI.loc[filtered_indices],  x = "Date", y = "Perfusion Index", title = "Perfusion Index report", markers=True)
+   Financialreport = px.line(df_financial.loc[filtered_indices], x="Date", y="Price", title = "Financial Report", markers=True)
         
-# Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
-streamlit_graphs = {
-    streamlit.plotly_chart(HRreport),
-    streamlit.plotly_chart(Oxyreport),
-    streamlit.plotly_chart(PIreport),
-    streamlit.plotly_chart(Financialreport)
-}
-
+   # Prepare data for line graphs in Streamlit (assuming simple structure for demonstration)
+   streamlit_graphs = {
+       streamlit.plotly_chart(HRreport),
+       streamlit.plotly_chart(Oxyreport),
+       streamlit.plotly_chart(PIreport),
+       streamlit.plotly_chart(Financialreport)
+   }
+   submitted = streamlit.form_submit_button("Submit")
+   if submitted:
+       streamlit.display(streamlit_graphs)
 
 
 
