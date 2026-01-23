@@ -20,7 +20,13 @@ streamlit.markdown(
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
 streamlit.header("Biochemical Communication")
-
+## ACTIVITY
+columns = [
+    "Name", "Date", "Heart Rate",
+    "Perfusion Index", "Oxygen Saturation", "Product", "Price"
+]
+Activity = pandas.DataFrame(columns=columns)
+streamlit.dataframe(Activity, use_container_width=True)
 
 with streamlit.form("Name"):
    Name = streamlit.text_input("Name")
@@ -83,13 +89,7 @@ streamlit_graphs = {
 }
 
 
-## ACTIVITY
-columns = [
-    "Name", "Date", "Heart Rate",
-    "Perfusion Index", "Oxygen Saturation", "Product", "Price"
-]
-Activity = pandas.DataFrame(columns=columns)
-streamlit.dataframe(Activity, use_container_width=True)
+
 
 
 ##unknown
