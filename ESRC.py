@@ -45,12 +45,12 @@ with streamlit.form("ESRCActivity"):
        Price = streamlit.text_input("dollars, USD")
    submitted = streamlit.form_submit_button("Submit")
    if submitted:
-       streamlit.dataframe(Activity) = streamlit.dataframe(Activity) + streamlit.form("ESRCActivity)
+       streamlit.dataframe(Activity)
 
 
 ## Activity INTERFACE
 with streamlit.form("Name"):
-   Name = streamlit.text_input("Name")
+   Name = streamlit.text_input("Name (cap-sensitive)")
    if "df_user" not in streamlit.session_state:
        streamlit.session_state.df_user = pandas.DataFrame([Activity['Name:Price'][Name]])
    if "df_financial" not in streamlit.session_state:
