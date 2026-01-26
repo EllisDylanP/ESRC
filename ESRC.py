@@ -6,8 +6,10 @@ import requests
 import base64
 import io
 import json
+import streamlit.components.v1
 
 ## FRONT PAGE DESIGN
+streamlit.components.v1.iframe("https://oxiline.shop/product/pulse-9s-pro/", height=300px)
 streamlit.markdown(
     """
     <style>
