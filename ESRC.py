@@ -25,10 +25,10 @@ streamlit.markdown(
     """,
     unsafe_allow_html=True)
 streamlit.components.v1.iframe("https://oxiline.shop/product/pulse-9s-pro/", height=300)
-streamlit.markdown("<h6 class="oxiline">Buy this</h6>")
+streamlit.markdown('<h6 class="oxiline">Buy this</h6>', unsafe_allow_html=True)
 streamlit.markdown('<h1 class="title">The Endocannabinoid System Research Company</h1>', unsafe_allow_html=True)
 #streamlit.set_page_config(page_title='The Endocannabinoid System Research Company')
-streamlit.markdown("<h4 class="info">Biochemical Communication</h4>")
+streamlit.markdown('<h4 class="info">Biochemical Communication</h4>', unsafe_allow_html=True)
 
 ## ACTIVITY
 columns = [
