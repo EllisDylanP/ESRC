@@ -56,6 +56,7 @@ with streamlit.form("ESRCActivity"):
 ## Activity INTERFACE
 with streamlit.form("Name"):
    Name = streamlit.text_input("Name (cap-sensitive)")
+   submitted = streamlit.form_submit_button("Submit")
    if "df_user" not in streamlit.session_state:
        streamlit.session_state.df_user = pandas.DataFrame([Activity['Name:Price'][Name]])
    if "df_financial" not in streamlit.session_state:
@@ -87,9 +88,8 @@ with streamlit.form("Name"):
        streamlit.plotly_chart(PIreport),
        streamlit.plotly_chart(Financialreport)
    }
-   submitted = streamlit.form_submit_button("Submit")
-   if submitted:
-       streamlit.display(streamlit_graphs)
+if submitted:
+   streamlit.display(streamlit_graphs)
 
 
 
