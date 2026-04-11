@@ -58,15 +58,15 @@ with streamlit.form("Name"):
    Name = streamlit.text_input("Name (cap-sensitive)")
    submitted = streamlit.form_submit_button("Submit")
    if "df_user" not in streamlit.session_state:
-       streamlit.session_state.df_user = Activity[Activity['Name']str.contains(Name)]
+       streamlit.session_state.df_user = Activity['Name']str.contains(Name)
    if "df_financial" not in streamlit.session_state:
-       streamlit.session_state.df_financial = Activity[Activity['Name', 'Date', 'Price']str.contains(Name)]
+       streamlit.session_state.df_financial = Activity['Name', 'Date', 'Price']str.contains(Name)
    if "df_HR" not in streamlit.session_state:
-       streamlit.session_state.df_HR = Activity[Activity['Name', 'Date', 'Heart Rate']str.contains(Name)]
+       streamlit.session_state.df_HR = Activity['Name', 'Date', 'Heart Rate']str.contains(Name)
    if "df_Oxy" not in streamlit.session_state:
-       streamlit.session_state.df_Oxy = Activity[Activity['Name', 'Date', 'Oxygen Saturation']str.contains(Name)]
+       streamlit.session_state.df_Oxy = Activity['Name', 'Date', 'Oxygen Saturation']str.contains(Name)
    if "df_PI" not in streamlit.session_state:
-       streamlit.session_state.df_PI = Activity[Activity['Name', 'Date', 'Perfusion Index']str.contains(Name)]
+       streamlit.session_state.df_PI = Activity['Name', 'Date', 'Perfusion Index']str.contains(Name)
 
    # Get indices or rows from the filtered reference DataFrame
    df_productselect = streamlit.multiselect("Select the product:",options = df_user["Product"].unique(),default = df_user["Product"].unique())
