@@ -36,22 +36,22 @@ streamlit.dataframe(Activity.tail(1), use_container_width=True)
 
 with streamlit.form("ESRCActivity"):
     streamlit.markdown('<h4 class="title">Line Item Submission (submit a new ticket for each cannabinoid form)</h4>', unsafe_allow_html=True)
-   Name = streamlit.text_input("Name (cap-sensitive)")
-   HeartRate = streamlit.text_input("Heart Rate")
-   PerfusionIndex = streamlit.text_input("Perfusion Index")
-   OxygenSaturation = streamlit.text_input("Oxygen Saturation")
-   col1, col2, col3 = streamlit.columns(3)
-   with col1:
-       Product = streamlit.selectbox("Product",
-    ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"]
-)
-   with col2:
-       Amount = streamlit.text_input("grams")
-   with col3:
-       Price = streamlit.text_input("dollars, USD")
-   submitted = streamlit.form_submit_button("Submit")
-   if submitted:
-       streamlit.dataframe(Activity)
+    Name = streamlit.text_input("Name (cap-sensitive)")
+    HeartRate = streamlit.text_input("Heart Rate")
+    PerfusionIndex = streamlit.text_input("Perfusion Index")
+    OxygenSaturation = streamlit.text_input("Oxygen Saturation")
+    col1, col2, col3 = streamlit.columns(3)
+    with col1:
+        Product = streamlit.selectbox("Product",
+                                      ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"
+                                       )
+    with col2:
+        Amount = streamlit.text_input("grams")
+    with col3:
+        Price = streamlit.text_input("dollars, USD")
+    submitted = streamlit.form_submit_button("Submit")
+    if submitted:
+        streamlit.dataframe(Activity)
 
 
 ## Activity INTERFACE
