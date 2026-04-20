@@ -58,8 +58,8 @@ with streamlit.form("ESRCActivity"):
 with streamlit.form("Name"):
    Name = streamlit.text_input("Name (cap-sensitive)")
    submitted = streamlit.form_submit_button("Submit")
-   ##if "df_user" not in streamlit.session_state:
-       ##streamlit.session_state.df_user = Activity['Name']str.contains(Name)
+   if "df_user" not in streamlit.session_state:
+       streamlit.session_state.df_user = pandas.Activity(columns=["Name"])
    ##if "df_financial" not in streamlit.session_state:
        ##streamlit.session_state.df_financial = Activity['Name', 'Date', 'Price']str.contains(Name)
    ##if "df_HR" not in streamlit.session_state:
