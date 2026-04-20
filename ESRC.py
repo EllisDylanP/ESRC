@@ -35,6 +35,7 @@ Activity = pandas.DataFrame(columns=columns)
 streamlit.dataframe(Activity.tail(1), use_container_width=True)
 
 with streamlit.form("ESRCActivity"):
+    streamlit.markdown('<h4 class="title">Line Item Submission (submit a new ticket for each cannabinoid form)</h4>', unsafe_allow_html=True)
    Name = streamlit.text_input("Name (cap-sensitive)")
    HeartRate = streamlit.text_input("Heart Rate")
    PerfusionIndex = streamlit.text_input("Perfusion Index")
