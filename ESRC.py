@@ -43,7 +43,7 @@ with streamlit.form("ESRCActivity"):
     col1, col2, col3 = streamlit.columns(3)
     with col1:
         Product = streamlit.selectbox("Product",
-                                      ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"
+                                      ["Flower", "Concentrate", "Tincture", "Beverage", "Edible", "Vapor", "Topical"]
                                        )
     with col2:
         Amount = streamlit.text_input("grams")
