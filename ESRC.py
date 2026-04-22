@@ -1,7 +1,7 @@
 import streamlit as streamlit
 
-streamlit.header(The Endocannabinoid System Research Company - Chemical Sensing Initiative)
-streamlit.subheader(The Holy Grace)
+streamlit.header("The Endocannabinoid System Research Company - Chemical Sensing Initiative")
+streamlit.subheader("The Holy Grace")
 
 streamlit.text(-The heart)
 streamlit.text(-Nitric Oxide)
