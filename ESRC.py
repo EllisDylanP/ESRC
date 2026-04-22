@@ -21,7 +21,7 @@ streamlit.write(-The heart)
 streamlit.write(-Nitric Oxide)
 streamlit.write(-Endocannabinoids)
 
-streamlit.write(Circulation → dynamics → tissue engineering )
+streamlit.write(Circulation >>> dynamics >>> tissue engineering )
 
 streamlit.write(Nitric oxide presence by the matter of light at the device’s receptor. Gas chromatography-mass 
 spectrometry (GC-MS) by the work of a film. Presence of mind at the film. Contrast of the film to 
