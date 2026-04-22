@@ -15,4 +15,4 @@ streamlit.text("Endocannabinoids are light dependent variables. Nitric oxide is 
 
 streamlit.text("The watch is made integrated.")
 streamlit.image("DylanPeterEllis-signature.png")
-streamlit.image("DylanPeterEllis.png", caption="Dylan Peter Ellis")
+streamlit.image("DylanPeterEllislogo.png", caption="Dylan Peter Ellis")
