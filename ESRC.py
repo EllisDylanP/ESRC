@@ -14,3 +14,5 @@ streamlit.text("Nitric oxide presence by the matter of light at the device\’s 
 streamlit.text("Endocannabinoids are light dependent variables. Nitric oxide is present as a plume. Concentration is displayed as wavelength.")
 
 streamlit.text("The watch is made integrated.")
+streamlit.image("DylanPeterEllis-signature.png")
+streamlit.image("DylanPeterEllis.png", caption="Dylan Peter Ellis")
