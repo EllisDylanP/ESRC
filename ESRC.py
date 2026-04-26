@@ -3,7 +3,7 @@ import streamlit as streamlit
 streamlit.header("The Endocannabinoid System Research Company - Chemical Sensing Initiative")
 streamlit.subheader("The Holy Grace")
 
-streamlit.text("-Might")
+streamlit.text("-Haemoglobin")
 streamlit.text("-Nitric Oxide")
 streamlit.text("-Endocannabinoids")
 
