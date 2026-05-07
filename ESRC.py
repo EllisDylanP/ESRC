@@ -17,16 +17,16 @@ streamlit.text("The watch is made integrated.")
 streamlit.text("Seek an endocannabinoid.")
 streamlit.image("Metabolize the environment.png")
 
-if page == "Consumption Consultation":
-    streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
-    contact_form = """
-    <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
-        <input type="hidden" name=" _captcha" value="false">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Highlight aspects of your experience"></textarea>
-        <button type="submit">Send</button>
-        <clear_on_submit = True>
+
+streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
+contact_form = """
+<form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
+    <input type="hidden" name=" _captcha" value="false">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" placeholder="Highlight aspects of your experience"></textarea>
+    <button type="submit">Send</button>
+    <clear_on_submit = True>
     </form>
     """
-    streamlit.markdown(contact_form, unsafe_allow_html = True)
+streamlit.markdown(contact_form, unsafe_allow_html = True)
