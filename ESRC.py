@@ -18,15 +18,5 @@ streamlit.text("Seek an endocannabinoid.")
 streamlit.image("DPE Element.png")
 
 
-streamlit.subheader("How are you by The Holy Grace?")
-contact_form = """
-<form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
-    <input type="hidden" name=" _captcha" value="false">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
-    <textarea name="message" placeholder="Highlight aspects of your experience"></textarea>
-    <button type="submit">Send</button>
-    <clear_on_submit = True>
-    </form>
-    """
+streamlit.subheader("Contact Dylan by phone at 7039014281 or by email at dpe.esrc@gmail.com")
 streamlit.markdown(contact_form, unsafe_allow_html = True)
