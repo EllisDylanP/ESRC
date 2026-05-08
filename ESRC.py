@@ -18,7 +18,7 @@ streamlit.text("Seek an endocannabinoid.")
 streamlit.image("DPE Element.png")
 
 
-streamlit.subheader("Describe a cannabis consumption situation you would like to have consultation regarding")
+streamlit.subheader("How are you by The Holy Grace?")
 contact_form = """
 <form action="https://formsubmit.co/dpe.esrc@gmail.com" method="POST">
     <input type="hidden" name=" _captcha" value="false">
