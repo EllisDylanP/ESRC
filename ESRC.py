@@ -18,5 +18,4 @@ streamlit.text("Seek an endocannabinoid.")
 streamlit.image("DPE Element.png")
 
 
-streamlit.subheader("Contact Dylan by phone at 7039014281 or by email at dpe.esrc@gmail.com")
-streamlit.markdown(contact_form, unsafe_allow_html = True)
+streamlit.subheader("Contact Dylan by phone at 7039014281 or by email at dpe.esrc@gmail.com for questions regarding the future steps of the ESRC.")
