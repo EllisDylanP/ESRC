@@ -15,7 +15,7 @@ streamlit.text("Endocannabinoids are light dependent variables. Nitric oxide is 
 
 streamlit.text("The watch is made integrated.")
 streamlit.text("Seek an endocannabinoid.")
-streamlit.text("POP THAT SHIT.", font=50)
+streamlit.text("POP THAT SHIT.", size=50)
 
 
 streamlit.subheader("Contact Dylan by phone at 7039014281 or by email at dpe.esrc@gmail.com for questions regarding the future steps of the ESRC.")
