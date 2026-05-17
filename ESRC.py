@@ -14,4 +14,4 @@ streamlit.text("Seek an endocannabinoid.")
 streamlit.image("The Watch.gif")
 
 
-streamlit.text("You may contact the Endocannabinoid System Research Company by 7039014281 and dpe.esrc@gmail.com.")
+streamlit.text("You may contact the ESRC at 7039014281 and dpe.esrc@gmail.com.")
