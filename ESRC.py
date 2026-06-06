@@ -6,7 +6,7 @@ streamlit.text("Nitric Oxide (NO) in the self is preservation to lay the grounds
 streamlit.text("Endocannabinoid in the self is flesh and blood so that there be love.")
 streamlit.text("Know the spread of the company for it is held in its geophysics, geopolitics, and geographic information systems.")
 streamlit.text("Fascia culminates in Streamlit, making for the presence of Artificial Intelligence for any contact with the company.")
-streamlit.text("The plasmology creating cannabinoid-hardened-steel is the Ionized.")
+streamlit.text("Roy creating cannabinoid-hardened-steel is Darkwater.")
 streamlit.subheader("The Cannabinoid to Endocannabinoid Exchange:")
 streamlit.text("-Haemoglobin")
 streamlit.text("-Nitric Oxide")
