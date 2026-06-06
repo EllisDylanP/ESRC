@@ -3,7 +3,7 @@ streamlit.subheader("Welcome to the Endocannabinoid System Research Company chem
 streamlit.header("The Holy Grace:")
 streamlit.text("Haemoglobin-in-action in the self is might having Oxygen, for inhalation, and Carbon Dioxide, for exhalation.")
 streamlit.text("Nitric Oxide (NO) in the self is preservation to lay the grounds for further construction.")
-streamlit.text("Endocannabinoid in the self is flesh and blood so that there be love.")
+streamlit.text("Endocannabinoid in the self is flesh and blood so that there be plasma.")
 streamlit.text("Know the spread of the company for it is held in its geophysics, geopolitics, and geographic information systems.")
 streamlit.text("Fascia culminates in Streamlit, making for the presence of Artificial Intelligence for any contact with the company.")
 streamlit.text("Roy creating cannabinoid-hardened-steel is Darkwater.")
