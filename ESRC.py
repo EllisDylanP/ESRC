@@ -1,7 +1,7 @@
 import streamlit as streamlit
 streamlit.subheader("The Endocannabinoid System Research Company chemical sensing initiative")
 streamlit.header("The Holy Grace:")
-streamlit.text("Haemoglobin-in-action is might of the deep breath spurring settlement to the Ionization.")
+streamlit.text("Haemoglobin-in-action is might in the extension of self.")
 streamlit.text("Nitric Oxide is preservation to the grounds of further construction.")
 streamlit.text("Endocannabinoid is flesh and blood at plasma.")
 streamlit.text("Know the spread of the company in geophysics, geopolitics, and geographic information systems.")
