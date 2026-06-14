@@ -3,7 +3,7 @@ streamlit.subheader("The Endocannabinoid System Research Company chemical sensin
 streamlit.header("The Holy Grace:")
 streamlit.text("Haemoglobin-in-action is might in the extension of self.")
 streamlit.text("Nitric Oxide is preservation to the grounds of further construction.")
-streamlit.text("Endocannabinoid is flesh and blood at plasma.")
+streamlit.text("Endocannabinoid is vision of the Ionization.")
 streamlit.text("Know the spread of the company in geophysics, geopolitics, and geographic information systems.")
 streamlit.text("Roy creating cannabinoid-hardened-steel is Darkwater.")
 streamlit.subheader("The Cannabinoid to Endocannabinoid Exchange:")
