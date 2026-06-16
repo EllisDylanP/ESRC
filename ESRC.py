@@ -1,5 +1,5 @@
 import streamlit as streamlit
-streamlit.subheader("The Endocannabinoid System Research Company chemical sensing initiative")
+streamlit.subheader("The Endocannabinoid System Research Company - Chemical Sensing Initiative")
 streamlit.header("The Holy Grace:")
 streamlit.text("Haemoglobin-in-action is might in the extension of self.")
 streamlit.text("Nitric Oxide is preservation to the grounds of further construction.")
