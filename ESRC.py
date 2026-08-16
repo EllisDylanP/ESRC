@@ -10,7 +10,7 @@ streamlit.text("The Cannabinoid to Endocannabinoid Exchange:")
 streamlit.text("-Haemoglobin")
 streamlit.text("-Nitric Oxide")
 streamlit.text("-Endocannabinoid")
-streamlit.text("The Pore-to-Porphyrin Connection:"
+streamlit.text("The Pore-to-Porphyrin Connection:")
 streamlit.text("-Cannabidiol")
 streamlit.text("-Crystallization")
 streamlit.text("-Quantuum Computing")
