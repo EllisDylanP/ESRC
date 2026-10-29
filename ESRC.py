@@ -1,3 +1,2 @@
 import streamlit as streamlit
-streamlit.text("The Holy Grace")
-streamlit.text("-Streamlit")
+streamlit.text("Breast Cancer Awareness")
