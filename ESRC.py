@@ -1,2 +1,2 @@
 import streamlit as streamlit
-streamlit.text("Breast Cancer Awareness")
+streamlit.text("Streamlit")
