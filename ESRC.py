@@ -1,10 +1,8 @@
 import streamlit as streamlit
-streamlit.header("The Endocannabinoid System Research Company Space Colony")
-streamlit.subheader("The Gazette of the United States")
-streamlit.text("The Holy Grace trails Biogeochemistry. The Holy Trinity struck Flesh and Blood. The Holy CEE swallows the United States of America.")
+streamlit.header("The Endocannabinoid System Research Company")
+streamlit.subheader("Dope dope sh!t")
 streamlit.text("Quantum Register:")
 Vision = streamlit.slider("Foreskin-Bit:", 0, 1, step=1)
 Plasma = streamlit.selectbox("Foresight-Byte:", ("Fuschia", "Lime", "Vibrant Red", "Electric Blue", "Aqua", "Sunlit Meadow", "White", "Black"))
 Company = streamlit.radio("Forebearer-Qubit:",["Coulomb", "Abcoulomb", "Hectocoulomb", "Kilocoulomb"])
-streamlit.text("Make Neptune Home.")
 streamlit.subheader("Enter Sandman.")
