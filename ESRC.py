@@ -1,5 +1,5 @@
 import streamlit as streamlit
-streamlit.header("Dope dope sh!t")
+streamlit.header("Die Biogeochemistry")
 streamlit.subheader("The Endocannabinoid System Research Company")
 streamlit.text("Quantum Register:")
 Vision = streamlit.slider("Foreskin-Bit:", 0, 1, step=1)
